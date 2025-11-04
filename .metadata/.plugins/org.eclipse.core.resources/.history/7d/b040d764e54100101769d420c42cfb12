@@ -1,0 +1,48 @@
+package codegenerator.test.exercise4
+
+import codegenerator.Uml2C
+import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.uml2.uml.Model
+import org.eclipse.uml2.uml.InstanceSpecification
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.Behavior
+import org.junit.Assert
+import org.junit.Test
+
+class TestMain {
+
+extension UMLFactory factory = UMLFactory.eINSTANCE
+
+@Test def void testMainGeneration() {
+
+}
+	val umlModel = createModel => [
+		// Package structure: Duhm::Game
+		ownedElements += createPackage => [
+			name = "Duhm"
+			packagedElements += createClass => [
+				name = "Game"
+				classifierBehavior = createActivity => [
+					name = "run"
+				]
+			]
+		]
+
+		// InstanceSpecification of Duhm::Game
+		ownedElements += createInstanceSpecification => [
+			name = "game"
+			classifiers += umlModel.getOwnedElement("Duhm").getOwnedElement("Game") as Class
+		]
+	]
+
+	val template = new MainTemplate
+	val code = template.generateCode(new Uml2C, umlModel, "main")
+
+	Assert.assertEquals('''
+		#include "Duhm/Game.h"
+		int main() {
+			Duhm_Game_run(&Duhm_game);
+			return 0;
+		}
+	'''.toString, code)
+}

@@ -1,0 +1,36 @@
+package codegenerator.templates
+
+import codegenerator.Template
+import codegenerator.CodegenInterface
+import org.eclipse.uml2.uml.Artifact
+
+class ArtifactTemplate implements Template<Artifact> {
+    
+    override generateCode(CodegenInterface it, Artifact umlArtifact, String context) {
+        switch (context) {
+            case "include": {
+                val file = umlArtifact.fileName?.trim
+                
+                // When no filename is available or empty: return null (no code)
+                if (file === null || file.trim.empty)
+                    return null
+                
+                // If filename is enclosed with < and > (e.g. <stdio.h>), generate include with angle brackets
+                if (file.startsWith("<") && file.endsWith(">"))
+                    return "#include " + file
+                
+                // Otherwise generate include with quotes
+                return "#include \"" + file + "\""
+            }
+            case "type": {
+                // For type context, return the artifact name directly
+                return umlArtifact.name
+            }
+            case "name": {
+                return umlArtifact.name
+            }
+            default:
+                throw new UnsupportedOperationException("Unsupported context: " + context)
+        }
+    }
+}

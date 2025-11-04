@@ -1,0 +1,1559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="__an5gMqxEeyo0KHhgKsGiQ" name="Duhm">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="__d-vgMqxEeyo0KHhgKsGiQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_OZyAcMqyEeyo0KHhgKsGiQ" name="textures">
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_HMsHoMqyEeyo0KHhgKsGiQ" name="ball" fileName="&lt;ball.h>"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_LAABMMqyEeyo0KHhgKsGiQ" name="cobblestone" fileName="&lt;cobblestone.h>"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_QqIScMqyEeyo0KHhgKsGiQ" name="dirt" fileName="&lt;dirt.h>"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_TG6d8MqyEeyo0KHhgKsGiQ" name="mario" fileName="&lt;mario.h>"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_V1SvwMqyEeyo0KHhgKsGiQ" name="shadow" fileName="&lt;shadow.h>"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_X57hAMqyEeyo0KHhgKsGiQ" name="sun" fileName="&lt;sun.h>"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_aq9eMMqyEeyo0KHhgKsGiQ" name="io">
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_XWE28Mq7Eeyo0KHhgKsGiQ" name="adc" fileName="&lt;adc.h>">
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_b-6DQMq7Eeyo0KHhgKsGiQ" name="ADC" fileName="&lt;adc.h>"/>
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_fyC9sMq7Eeyo0KHhgKsGiQ" name="ADC_Channel" fileName="&lt;adc.h>"/>
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_iNUGQMq7Eeyo0KHhgKsGiQ" name="ADC_Input" fileName="&lt;adc.h>"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_oIbZ0Mq7Eeyo0KHhgKsGiQ" name="delay" fileName="&lt;delay.h>"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_r-8YYMq7Eeyo0KHhgKsGiQ" name="gpio" fileName="&lt;gpio.h>">
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_uX9eMMq7Eeyo0KHhgKsGiQ" name="GPIO_Port" fileName="&lt;gpio.h>"/>
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_wquyEMq7Eeyo0KHhgKsGiQ" name="GPIO_Pin" fileName="&lt;gpio.h>"/>
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_zFyfQMq7Eeyo0KHhgKsGiQ" name="GPIO_Mode" fileName="&lt;gpio.h>"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_37uTcMq7Eeyo0KHhgKsGiQ" name="lcd" fileName="&lt;lcd.h>"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_75X0wMq7Eeyo0KHhgKsGiQ" name="random" fileName="&lt;random.h>"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_3Y8soMqyEeyo0KHhgKsGiQ" name="types">
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_4awu8MqyEeyo0KHhgKsGiQ" name="stdint.h" fileName="&lt;stdint.h>">
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_6sikUMqyEeyo0KHhgKsGiQ" name="int8_t" fileName="&lt;stdint.h>"/>
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_8oprsMqyEeyo0KHhgKsGiQ" name="int16_t" fileName="&lt;stdint.h>"/>
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_9dgQEMqyEeyo0KHhgKsGiQ" name="int32_t" fileName="&lt;stdint.h>"/>
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_-fuiEMqyEeyo0KHhgKsGiQ" name="uint32_t" fileName="&lt;stdint.h>"/>
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="__YNCMMqyEeyo0KHhgKsGiQ" name="uint16_t" fileName="&lt;stdint.h>"/>
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_AQvzwMqzEeyo0KHhgKsGiQ" name="uint8_t" fileName="&lt;stdint.h>"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_ABk54Mq0Eeyo0KHhgKsGiQ" name="TM4C123GH6PM.h" fileName="&lt;TM4C123GH6PM.h>"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_pA4WsMq5Eeyo0KHhgKsGiQ" name="color.h" fileName="&lt;color.h>">
+      <nestedArtifact xmi:type="uml:Artifact" xmi:id="_1OP2AMq6Eeyo0KHhgKsGiQ" name="color_t" fileName="&lt;color.h>"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_sPm1IMq8Eeyo0KHhgKsGiQ" name="float"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_G5i2QMq_Eeyo0KHhgKsGiQ" name="math.h" fileName="&lt;math.h>"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_1Kr8wM99Eey6GYEgkWbSfw" name="systick" fileName="&lt;systick.h>"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_JzkysM-GEey6GYEgkWbSfw" name="world" fileName="&lt;world.h>"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_B990cMq8Eeyo0KHhgKsGiQ" name="Game" classifierBehavior="_Dl7lsM97Eey6GYEgkWbSfw" isActive="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_n0b04sq9Eeyo0KHhgKsGiQ" name="objects" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" association="_n0bN0Mq9Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n0b048q9Eeyo0KHhgKsGiQ" value="6"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n0b05Mq9Eeyo0KHhgKsGiQ" value="6"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_0L79Esq9Eeyo0KHhgKsGiQ" name="ais" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" association="_0L7WAMq9Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0L79E8q9Eeyo0KHhgKsGiQ" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0L79FMq9Eeyo0KHhgKsGiQ" value="2"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_6aCeEsq9Eeyo0KHhgKsGiQ" name="world" type="_E_TegMq8Eeyo0KHhgKsGiQ" association="_6aB3AMq9Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6aDFIMq9Eeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6aDFIcq9Eeyo0KHhgKsGiQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_VWnj0sq_Eeyo0KHhgKsGiQ" name="player" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" association="_VWm8wMq_Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VWnj08q_Eeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VWoK4Mq_Eeyo0KHhgKsGiQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_kH6M4MrKEeyo0KHhgKsGiQ" name="ceil_floor_lookup" type="_1OP2AMq6Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lkzBoMrKEeyo0KHhgKsGiQ" value="128"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_llEucMrKEeyo0KHhgKsGiQ" value="128"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_EL0Y0MrMEeyo0KHhgKsGiQ" name="sprite_order" visibility="public" type="_9dgQEMqyEeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GSoUUMrMEeyo0KHhgKsGiQ" value="6"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GS5aEMrMEeyo0KHhgKsGiQ" value="6"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_uWI-oMrOEeyo0KHhgKsGiQ" name="column_a" type="_1OP2AMq6Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vV-D8MrOEeyo0KHhgKsGiQ" value="128"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vWPJsMrOEeyo0KHhgKsGiQ" value="128"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_v9TwwMrOEeyo0KHhgKsGiQ" name="column_b" type="_1OP2AMq6Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w1k1gMrOEeyo0KHhgKsGiQ" value="128"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w11UMMrOEeyo0KHhgKsGiQ" value="128"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_E1JiUMrPEeyo0KHhgKsGiQ" name="fov_lookup" type="_sPm1IMq8Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GHrhMMrPEeyo0KHhgKsGiQ" value="256"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GH9OAMrPEeyo0KHhgKsGiQ" value="256"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ckc7UsryEeyo0KHhgKsGiQ" name="controls" type="_me610MrxEeyo0KHhgKsGiQ" association="_ckbGIMryEeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ckdiYMryEeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ckdiYcryEeyo0KHhgKsGiQ" value="1"/>
+    </ownedAttribute>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Tq7BkMrAEeyo0KHhgKsGiQ" name="collision_detection_method" specification="_QyrpIMrAEeyo0KHhgKsGiQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Tq7BkcrAEeyo0KHhgKsGiQ" source="single reference object" references="_QyrpIMrAEeyo0KHhgKsGiQ"/>
+      <language>C</language>
+      <body>// Collision detection&#xD;
+for (int i = 0; i &lt; 6; ++i) {&#xD;
+    Duhm_Object *obj = me->objects[i];&#xD;
+    float radius0 = obj->size[0] * 0.5f;&#xD;
+    float mass0   = obj->size[0] * obj->size[1];&#xD;
+&#xD;
+    // Object vs object&#xD;
+    if (!(obj->flags &amp; 0x01 /*Object_Flags_No_Collision*/)) {&#xD;
+        for (int j = i + 1; j &lt; 6; ++j) {&#xD;
+            Duhm_Object *other = me->objects[j];&#xD;
+            float radius1   = other->size[0] * 0.5f;&#xD;
+            float mass1     = other->size[0] * other->size[1];&#xD;
+            if (!(other->flags &amp; 0x01 /*Object_Flags_No_Collision*/)) {&#xD;
+                float min_dist = radius0 + radius1;&#xD;
+                float dx = obj->pos[0] - other->pos[0];&#xD;
+                float dy = obj->pos[1] - other->pos[1];&#xD;
+                float dist_sq = dx * dx + dy * dy;&#xD;
+                if (dist_sq &lt; min_dist * min_dist) {&#xD;
+                    float dist = sqrtf(dist_sq);&#xD;
+                    dx /= dist;&#xD;
+                    dy /= dist;&#xD;
+                    float dv = (other->vel[0] - obj->vel[0]) * dx&#xD;
+                             + (other->vel[1] - obj->vel[1]) * dy;&#xD;
+&#xD;
+                    float f0 = (min_dist - dist) * (mass1 / (mass0 + mass1));&#xD;
+                    if (obj->flags &amp; 0x04 /*Object_Flags_Bouncy*/) {&#xD;
+                        obj->vel[0] += dx * dv * f0;&#xD;
+                        obj->vel[1] += dy * dv * f0;&#xD;
+                    }&#xD;
+                    obj->pos[0] += dx * (min_dist - dist) * f0;&#xD;
+                    obj->pos[1] += dy * (min_dist - dist) * f0;&#xD;
+&#xD;
+                    float f1 = (min_dist - dist) * (mass0 / (mass0 + mass1));&#xD;
+                    if (other->flags &amp; 0x04 /*Object_Flags_Bouncy*/) {&#xD;
+                        other->vel[0] -= dx * dv * f1;&#xD;
+                        other->vel[1] -= dy * dv * f1;&#xD;
+                    }&#xD;
+                    other->pos[0] -= dx * (min_dist - dist) * f1;&#xD;
+                    other->pos[1] -= dy * (min_dist - dist) * f1;&#xD;
+                }&#xD;
+            }&#xD;
+        }&#xD;
+    }&#xD;
+&#xD;
+    // Object vs world&#xD;
+    int min_x = rintf(obj->pos[0] - radius0);&#xD;
+    int min_y = rintf(obj->pos[1] - radius0);&#xD;
+    int max_x = rintf(obj->pos[0] + radius0);&#xD;
+    int max_y = rintf(obj->pos[1] + radius0);&#xD;
+    for (int y = min_y; y &lt;= max_y; ++y) {&#xD;
+        for (int x = min_x; x &lt;= max_x; ++x) {&#xD;
+            if (0 != Duhm_World_get_tile_type_at(me->world, x, y)) {&#xD;
+                float dx = fminf(fmaxf(obj->pos[0], (float)x - 0.5f), (float)x + 0.5f) - obj->pos[0];&#xD;
+                float dy = fminf(fmaxf(obj->pos[1], (float)y - 0.5f), (float)y + 0.5f) - obj->pos[1];&#xD;
+                float dist_sq = dx * dx + dy * dy;&#xD;
+                if (dist_sq &lt; radius0 * radius0) {&#xD;
+                    float dist = sqrtf(dist_sq);&#xD;
+                    dx /= dist;&#xD;
+                    dy /= dist;&#xD;
+                    float f = (radius0 - dist);&#xD;
+                    obj->pos[0] -= dx * f;&#xD;
+                    obj->pos[1] -= dy * f;&#xD;
+                    float vel_into_wall = fmaxf(0.0f, obj->vel[0] * dx + obj->vel[1] * dy);&#xD;
+                    if (obj->flags &amp; 0x04 /*Object_Flags_Bouncy*/) {&#xD;
+                        obj->vel[0] -= 2.0f * dx * vel_into_wall;&#xD;
+                        obj->vel[1] -= 2.0f * dy * vel_into_wall;&#xD;
+                    } else {&#xD;
+                        obj->vel[0] -= dx * vel_into_wall;&#xD;
+                        obj->vel[1] -= dy * vel_into_wall;&#xD;
+                    }&#xD;
+                }&#xD;
+            }&#xD;
+        }&#xD;
+    }&#xD;
+}</body>
+    </ownedBehavior>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vdP5AMrAEeyo0KHhgKsGiQ" name="draw_method" specification="_u41kYMrAEeyo0KHhgKsGiQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vdP5AcrAEeyo0KHhgKsGiQ" source="single reference object" references="_u41kYMrAEeyo0KHhgKsGiQ"/>
+      <language>C</language>
+      <body>// Drawing&#xD;
+float cam_x = me->player->pos[0];&#xD;
+float cam_y = me->player->pos[1];&#xD;
+float cam_z = me->player->pos[2] + me->player->size[1] * 0.9f;&#xD;
+&#xD;
+// Ceiling and floor lookup.&#xD;
+{&#xD;
+    for (int i = 0; i &lt; LCD_HEIGHT / 2; ++i) {&#xD;
+        float dist = (me->world->ceil_height - cam_z) * (float)LCD_HEIGHT / 2.0f / ((float)LCD_HEIGHT / 2.0f - (float)i);&#xD;
+        uint8_t p = (uint8_t)(255.0f * dist / 10.0f /*MAX_DEPTH*/);&#xD;
+        me->ceil_floor_lookup[i] = col_lerp(me->world->sky_color, me->world->fog_color, p);&#xD;
+    }&#xD;
+    for (int i = LCD_HEIGHT / 2; i &lt; LCD_HEIGHT; ++i) {&#xD;
+        float dist = (cam_z - me->world->floor_height) * (float)LCD_HEIGHT / 2.0f / ((float)i - (float)LCD_HEIGHT / 2.0f);&#xD;
+        uint8_t p = (uint8_t)(255.0f * dist / 10.0f /*MAX_DEPTH*/);&#xD;
+        me->ceil_floor_lookup[i] = col_lerp(me->world->floor_color, me->world->fog_color, p);&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+// Build a list of sprites to draw.&#xD;
+int num_sprites = 0;&#xD;
+int num_shadows = 0;&#xD;
+Duhm_Sprite sprites[6];&#xD;
+Duhm_Sprite shadows[6];&#xD;
+for (int i = 0; i &lt; 6; ++i) {&#xD;
+    Duhm_Object *obj = me->objects[i];&#xD;
+    if (!obj->texture) continue;&#xD;
+&#xD;
+    float dx = obj->pos[0] - cam_x;&#xD;
+    float dy = obj->pos[1] - cam_y;&#xD;
+    float dz = obj->pos[2] + obj->size[1] - cam_z;&#xD;
+    float dist = me->player->view[0] * dx + me->player->view[1] * dy;&#xD;
+    if (10.0f /*MAX_DEPTH*/ &lt;= dist || dist &lt;= 0.1f) continue;&#xD;
+&#xD;
+    float x0 = 0.5f + (me->player->view[0] * dy - me->player->view[1] * dx - obj->size[0] * 0.5f) * 1.25f / dist;&#xD;
+    float y0 = 0.5f - dz / dist;&#xD;
+    float x1 = x0 + obj->size[0] * 1.25f / dist;&#xD;
+    float y1 = y0 + obj->size[1] / dist;&#xD;
+    if (x1 &lt;= 0.0f || 1.0f &lt;= x0) continue;&#xD;
+    if (y1 &lt;= 0.0f || 1.0f &lt;= y0) continue;&#xD;
+&#xD;
+    int flip_x = (me->player->view[0] * obj->view[1] - me->player->view[1] * obj->view[0] &lt; 0) ? 1 : 0;&#xD;
+&#xD;
+    sprites[num_sprites] = (Duhm_Sprite){&#xD;
+        .distance = dist,&#xD;
+        .bounds = {&#xD;
+            (int)((float)LCD_WIDTH  * x0),&#xD;
+            (int)((float)LCD_HEIGHT * y0),&#xD;
+            (int)((float)LCD_WIDTH  * x1),&#xD;
+            (int)((float)LCD_HEIGHT * y1)&#xD;
+        },&#xD;
+        .texture = obj->texture,&#xD;
+        .flags = (flip_x ? 0x01 /*Sprite_Flags_H_Flip*/ : 0)&#xD;
+    };&#xD;
+    me->sprite_order[num_sprites] = num_sprites;&#xD;
+    num_sprites += 1;&#xD;
+&#xD;
+    if (!(obj->flags &amp; 0x02 /*Object_Flags_Shadow*/)) continue;&#xD;
+&#xD;
+    float shadow_size = obj->size[0] * 0.8f / (1.0f + obj->pos[2]);&#xD;
+    float sx0 = 0.5f + (-me->player->view[1] * dx + me->player->view[0] * dy - shadow_size * 0.5f) * 1.25f / dist;&#xD;
+    float sx1 = x0 + shadow_size * 1.25f / dist;&#xD;
+    float sy0 = 0.5f + cam_z / (dist + shadow_size * 0.5f);&#xD;
+    float sy1 = 0.5f + cam_z / (dist - shadow_size * 0.5f);&#xD;
+&#xD;
+    if (1.0f &lt;= sy0) continue;                &#xD;
+&#xD;
+    shadows[num_shadows] = (Duhm_Sprite){&#xD;
+        .distance = dist,&#xD;
+        .bounds = {&#xD;
+            (int)((float)LCD_WIDTH  * sx0),&#xD;
+            (int)((float)LCD_HEIGHT * sy0),&#xD;
+            (int)((float)LCD_WIDTH  * sx1),&#xD;
+            (int)((float)LCD_HEIGHT * sy1)&#xD;
+        },&#xD;
+        .texture = 0, // shadows use a hard-coded texture&#xD;
+        .flags = 0&#xD;
+    };&#xD;
+    num_shadows += 1;&#xD;
+}&#xD;
+&#xD;
+// Sort the visible objects by depth, so that the closest will be drawn last, covering&#xD;
+// objects behind it.&#xD;
+{&#xD;
+    int last_unsorted_index = num_sprites - 1;&#xD;
+    int last_swapped_index;&#xD;
+    do {&#xD;
+        last_swapped_index = -1;&#xD;
+        for (int i = 0; i &lt; last_unsorted_index; ++i) {&#xD;
+            if (sprites[me->sprite_order[i]].distance &lt; sprites[me->sprite_order[i + 1]].distance) {&#xD;
+                int32_t tmp = me->sprite_order[i];&#xD;
+                me->sprite_order[i] = me->sprite_order[i + 1];&#xD;
+                me->sprite_order[i + 1] = tmp;&#xD;
+                last_swapped_index = i;&#xD;
+            }&#xD;
+        }&#xD;
+        last_unsorted_index = last_swapped_index;&#xD;
+    } while (0 &lt;= last_swapped_index);&#xD;
+}&#xD;
+&#xD;
+// Go through the columns of the display and render the scene.&#xD;
+for (int x = 0; x &lt; LCD_WIDTH; ++x) {&#xD;
+    color_t *column = (x &amp; 1 ? me->column_a : me->column_b);&#xD;
+&#xD;
+    float dir_x = me->player->view[0] * me->fov_lookup[x * 2 + 0] - me->player->view[1] * me->fov_lookup[x * 2 + 1];&#xD;
+    float dir_y = me->player->view[1] * me->fov_lookup[x * 2 + 0] + me->player->view[0] * me->fov_lookup[x * 2 + 1];&#xD;
+&#xD;
+    // draw the walls&#xD;
+    int   wall_top  = LCD_HEIGHT / 2;&#xD;
+    int   wall_bot  = LCD_HEIGHT / 2;&#xD;
+    float wall_dist = 10.0f /*MAX_DEPTH*/;&#xD;
+    Duhm_Texture* texture;&#xD;
+    if (Duhm_World_raycast(me->world, cam_x, cam_y, dir_x, dir_y, &amp;wall_dist, &amp;texture)) {&#xD;
+&#xD;
+        wall_top -= (int)(( me->world->ceil_height - cam_z) / wall_dist * (float)LCD_HEIGHT);&#xD;
+        wall_bot += (int)((cam_z - me->world->floor_height) / wall_dist * (float)LCD_HEIGHT);&#xD;
+        int wall_height = wall_bot - wall_top;&#xD;
+&#xD;
+        int min_y = (wall_top &lt; 0 ? 0 : wall_top);&#xD;
+        int max_y = (LCD_HEIGHT &lt; wall_bot ? LCD_HEIGHT : wall_bot);&#xD;
+&#xD;
+        uint8_t shade = (uint8_t)fminf(255.0f, 255.0f * wall_dist / 10.0f /*MAX_DEPTH*/);&#xD;
+        uint8_t inv_shade = 255 - shade;&#xD;
+        color_t fog = col_multiply_scalar(me->world->fog_color, shade);&#xD;
+        float p = cam_x + dir_x * wall_dist + cam_y + dir_y * wall_dist;&#xD;
+&#xD;
+        int tw = texture->width;&#xD;
+        int th = texture->height;&#xD;
+        int tx = (int)((p - floor(p)) * (float)tw);&#xD;
+        const color_t *tex_column = &amp;texture->data[tx * th];&#xD;
+        int ty = (min_y - wall_top) * th / wall_height;&#xD;
+        int max_ty = (max_y - wall_top) * th / wall_height;&#xD;
+        int y = min_y;&#xD;
+        // Draw all texture pixels that are definitely on the screen.&#xD;
+        for (; ty &lt; max_ty; ++ty) {&#xD;
+            int next_y = (ty + 1) * wall_height / th + wall_top;&#xD;
+            color_t color = col_add(col_multiply_scalar(tex_column[ty], inv_shade), fog);&#xD;
+            for (; y &lt; next_y; ++y) {&#xD;
+                column[y] = color;&#xD;
+            }&#xD;
+        }&#xD;
+        // If the last texture pixel was cut off by the bottom of the&#xD;
+        // screen, the loop above won't draw it and we handle it here.&#xD;
+        // This is more efficient than constantly checking in the loop&#xD;
+        // above if y is off-screen.&#xD;
+        if (y &lt; max_y) {&#xD;
+            color_t color = col_add(col_multiply_scalar(tex_column[ty], inv_shade), fog);&#xD;
+            for (; y &lt; LCD_HEIGHT; ++y) {&#xD;
+                column[y] = color;&#xD;
+            }&#xD;
+        }&#xD;
+    }&#xD;
+&#xD;
+    // Draw the floor and ceiling&#xD;
+    for (int i = 0; i &lt; wall_top; ++i) {&#xD;
+        column[i] = me->ceil_floor_lookup[i];&#xD;
+    }&#xD;
+    for (int i = wall_bot; i &lt; LCD_HEIGHT; ++i) {&#xD;
+        column[i] = me->ceil_floor_lookup[i];&#xD;
+    }&#xD;
+&#xD;
+#if 1 // draw shadows&#xD;
+    for (int i = 0; i &lt; num_shadows; ++i) {&#xD;
+&#xD;
+        if (wall_dist &lt; shadows[i].distance) continue;&#xD;
+        if (x &lt; shadows[i].bounds[0] || shadows[i].bounds[2] &lt;= x) continue;&#xD;
+&#xD;
+        int sx = shadows[i].bounds[0];&#xD;
+        int sy = shadows[i].bounds[1];&#xD;
+        int sw = shadows[i].bounds[2] - sx;&#xD;
+        int sh = shadows[i].bounds[3] - sy;&#xD;
+&#xD;
+        int tw = shadow_width;&#xD;
+        int th = shadow_height;&#xD;
+        int tx = (x - sx) * tw / sw;&#xD;
+        const uint8_t *tex_column = &amp;shadow_data[tx * th];&#xD;
+        int min_y = (sy &lt; 0 ? 0 : sy);&#xD;
+        int max_y = (sy + sh &lt; LCD_HEIGHT ? sy + sh: LCD_HEIGHT);&#xD;
+        int ty = (min_y - sy) * th / sh;&#xD;
+        int max_ty = (max_y - sy) * th / sh;&#xD;
+        int y = min_y;&#xD;
+        // See wall drawing code for why we have a for followed by&#xD;
+        // an if for the last pixel.&#xD;
+        for (; ty &lt; max_ty; ++ty) {&#xD;
+            int next_y = (ty + 1) * sh / th + sy;&#xD;
+            // Technically this is wrong because column[y] changes for every y.&#xD;
+            // But these changes and the difference between y and next_y are&#xD;
+            // so small that it is not noticeable.&#xD;
+            color_t color = col_multiply_scalar(column[y], tex_column[ty]);&#xD;
+            for (;y &lt; next_y; ++y) {&#xD;
+                column[y] = color;&#xD;
+            }&#xD;
+        }&#xD;
+        if (y &lt; max_y) {&#xD;
+            // Same as above.&#xD;
+            color_t color = col_multiply_scalar(column[y], tex_column[ty]);&#xD;
+            for (;y &lt; LCD_HEIGHT; ++y) {&#xD;
+                column[y] = color;&#xD;
+            }&#xD;
+        }&#xD;
+    }&#xD;
+#endif&#xD;
+&#xD;
+    // draw objects&#xD;
+    for (int i = 0; i &lt; num_sprites; ++i) {&#xD;
+        const Duhm_Sprite *sprite = &amp;sprites[me->sprite_order[i]];&#xD;
+        if (wall_dist &lt; sprite->distance) continue;&#xD;
+        if (x &lt; sprite->bounds[0] || sprite->bounds[2] &lt;= x) continue;&#xD;
+&#xD;
+        int sx = sprite->bounds[0];&#xD;
+        int sy = sprite->bounds[1];&#xD;
+        int sw = sprite->bounds[2] - sx;&#xD;
+        int sh = sprite->bounds[3] - sy;&#xD;
+&#xD;
+        int tw = sprite->texture->width;&#xD;
+        int th = sprite->texture->height;&#xD;
+        uint8_t shade = (uint8_t)fminf(255.0f, 255.0f * sprite->distance / 10.0f /*MAX_DEPTH*/);&#xD;
+        uint8_t inv_shade = 255 - shade;&#xD;
+        color_t fog = col_multiply_scalar(me->world->fog_color, shade);&#xD;
+        int tx = (x - sx) * tw / sw;&#xD;
+        if (sprite->flags &amp; 0x01 /*Sprite_Flags_H_Flip*/) tx = sprite->texture->width - tx - 1;&#xD;
+        const color_t *tex_column = &amp;sprite->texture->data[tx * th];&#xD;
+        int min_y = (sy &lt; 0 ? 0 : sy);&#xD;
+        int max_y = (sy + sh &lt; LCD_HEIGHT ? sy + sh : LCD_HEIGHT);&#xD;
+        int ty = (min_y - sy) * th / sh;&#xD;
+        int max_ty = (max_y - sy) * th / sh;&#xD;
+        int y = min_y;&#xD;
+        // See wall drawing code for why we have a for followed by&#xD;
+        // an if for the last pixel.&#xD;
+        for (; ty &lt; max_ty; ++ty) {&#xD;
+            int next_y = (ty + 1) * sh / th + sy;&#xD;
+            color_t col = tex_column[ty];&#xD;
+            if (col.val == 0xF81F) {&#xD;
+                y = next_y;&#xD;
+                continue;&#xD;
+            }&#xD;
+            color_t color = col_add(col_multiply_scalar(col, inv_shade), fog);&#xD;
+            for (;y &lt; next_y; ++y) {&#xD;
+                column[y] = color;&#xD;
+            }&#xD;
+        }&#xD;
+        if (y &lt; max_y) {&#xD;
+            color_t col = tex_column[ty];&#xD;
+            if (col.val != 0xF81F) {&#xD;
+                color_t color = col_add(col_multiply_scalar(col, inv_shade), fog);&#xD;
+                for (;y &lt; LCD_HEIGHT; ++y) {&#xD;
+                    column[y] = color;&#xD;
+                }&#xD;
+            }&#xD;
+        }&#xD;
+    }&#xD;
+&#xD;
+    lcd_bitmap(x, 0, column, 1, LCD_HEIGHT);&#xD;
+}</body>
+    </ownedBehavior>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_uKzJ8MrREeyo0KHhgKsGiQ" name="init_method" specification="_c6dIsMq_Eeyo0KHhgKsGiQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uKzJ8crREeyo0KHhgKsGiQ" source="single reference object" references="_c6dIsMq_Eeyo0KHhgKsGiQ"/>
+      <language>C</language>
+      <body>SysTick_Config(16000000 / 50 /*FPS*/);&#xD;
+&#xD;
+lcd_init();&#xD;
+&#xD;
+for (int i = 0; i &lt; 2; ++i) {&#xD;
+    Duhm_Ai *ai  = me->ais[i];&#xD;
+    ai->target_pos[0] = ai->object->pos[0];&#xD;
+    ai->target_pos[1] = ai->object->pos[1];&#xD;
+}&#xD;
+&#xD;
+for (int i = 0; i &lt; LCD_WIDTH; ++i) {&#xD;
+    float f = ((float)i / (float)LCD_WIDTH - 0.5f) * 3.142f * 0.25f;&#xD;
+    // To avoid the fisheye effect, we're not creating normalized vectors&#xD;
+    // here, but direction vectors with the x component normalized to 1.&#xD;
+    // Note that sin(x)/cos(x) == tan(x)&#xD;
+    me->fov_lookup[i * 2 + 0] = 1.0f;//cosf(f);&#xD;
+    me->fov_lookup[i * 2 + 1] = tanf(f);//sinf(f);&#xD;
+}</body>
+    </ownedBehavior>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Dl7lsM97Eey6GYEgkWbSfw" name="run_method" specification="_C8HMoM97Eey6GYEgkWbSfw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Dl7lsc97Eey6GYEgkWbSfw" source="single reference object" references="_C8HMoM97Eey6GYEgkWbSfw"/>
+      <language>C</language>
+      <body>Duhm_Game_init(me);&#xD;
+Duhm_Controls_init(me->controls);&#xD;
+&#xD;
+while (1) {&#xD;
+    while (!do_draw);&#xD;
+    do_draw = 0;&#xD;
+    fps_counter += 1;&#xD;
+&#xD;
+    Duhm_Controls_process_inputs(me->controls, 1.0f / 50.0f);&#xD;
+    for (int i = 0; i &lt; 2; ++i) {&#xD;
+        Duhm_Ai_update(me->ais[i], 1.0f / 50.0f);&#xD;
+    }&#xD;
+    for (int i = 0; i &lt; 6; ++i) {&#xD;
+        Duhm_Object_update(me->objects[i], 1.0f / 50.0f);&#xD;
+    }&#xD;
+    Duhm_Game_collision_detection(me);&#xD;
+    Duhm_Game_draw(me);&#xD;
+}</body>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_c6dIsMq_Eeyo0KHhgKsGiQ" name="init" method="_uKzJ8MrREeyo0KHhgKsGiQ"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_QyrpIMrAEeyo0KHhgKsGiQ" name="collision_detection" method="_Tq7BkMrAEeyo0KHhgKsGiQ"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_u41kYMrAEeyo0KHhgKsGiQ" name="draw" method="_vdP5AMrAEeyo0KHhgKsGiQ"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_C8HMoM97Eey6GYEgkWbSfw" name="run" method="_Dl7lsM97Eey6GYEgkWbSfw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Cv5nsMq8Eeyo0KHhgKsGiQ" name="Object">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_qp4NcMq8Eeyo0KHhgKsGiQ" name="pos" visibility="public" type="_sPm1IMq8Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_A6BOsMq9Eeyo0KHhgKsGiQ" value="3"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_A6M04Mq9Eeyo0KHhgKsGiQ" value="3"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_yDe4QMq8Eeyo0KHhgKsGiQ" name="size" visibility="public" type="_sPm1IMq8Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DI1PoMq9Eeyo0KHhgKsGiQ" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DI_AoMq9Eeyo0KHhgKsGiQ" value="2"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_1J3aYMq8Eeyo0KHhgKsGiQ" name="texture" type="_Gb28EMq8Eeyo0KHhgKsGiQ" association="_1JsbQMq8Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1J3aYcq8Eeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1J3aYsq8Eeyo0KHhgKsGiQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_2zlKMMq8Eeyo0KHhgKsGiQ" name="view" visibility="public" type="_sPm1IMq8Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FxjlYMq9Eeyo0KHhgKsGiQ" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FxsIQMq9Eeyo0KHhgKsGiQ" value="2"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_5phckMq8Eeyo0KHhgKsGiQ" name="flags" type="_-fuiEMqyEeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_7NkpQMq8Eeyo0KHhgKsGiQ" name="vel" visibility="public" type="_sPm1IMq8Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hs8UAMq9Eeyo0KHhgKsGiQ" value="3"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HtGsEMq9Eeyo0KHhgKsGiQ" value="3"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_JQGI0Mq9Eeyo0KHhgKsGiQ" name="walk_dist" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1PAuMMq-Eeyo0KHhgKsGiQ" name="update_method" specification="_vybwwMq-Eeyo0KHhgKsGiQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1PAuMcq-Eeyo0KHhgKsGiQ" source="single reference object" references="_vybwwMq-Eeyo0KHhgKsGiQ"/>
+      <language>C</language>
+      <body>me->pos[0] += me->vel[0] * dt;&#xD;
+me->pos[1] += me->vel[1] * dt;&#xD;
+me->pos[2] += me->vel[2] * dt;&#xD;
+if (0.0f &lt; me->pos[2] &amp;&amp; !(me->flags &amp; 0x08 /*Object_Flags_Frozen*/)) {&#xD;
+    me->vel[2] -= 4.0f * dt; // gravity&#xD;
+}&#xD;
+if (me->pos[2] &lt; 0.0f) {&#xD;
+    if (me->flags &amp; 0x04 /*Object_Flags_Bouncy*/) {&#xD;
+        me->vel[2] = fabsf(me->vel[2]);&#xD;
+    } else {&#xD;
+        me->vel[2] = 0.0f;&#xD;
+        me->pos[2] = 0.0f;&#xD;
+    }&#xD;
+}</body>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_vybwwMq-Eeyo0KHhgKsGiQ" name="update" method="_1PAuMMq-Eeyo0KHhgKsGiQ">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="__Uz5gMq-Eeyo0KHhgKsGiQ" name="dt" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_E_TegMq8Eeyo0KHhgKsGiQ" name="World">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_e1xtQMq8Eeyo0KHhgKsGiQ" name="width" type="_9dgQEMqyEeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_gHP8MMq8Eeyo0KHhgKsGiQ" name="height" type="_9dgQEMqyEeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_kFWJcMq8Eeyo0KHhgKsGiQ" name="cells" type="_AQvzwMqzEeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lZbngMq8Eeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lZf48Mq8Eeyo0KHhgKsGiQ" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_9BubkMrJEeyo0KHhgKsGiQ" name="ceil_height" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-fQJgMrJEeyo0KHhgKsGiQ" name="floor_height" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_A84pkMrKEeyo0KHhgKsGiQ" name="sky_color" type="_1OP2AMq6Eeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Cw16gMrKEeyo0KHhgKsGiQ" name="floor_color" type="_1OP2AMq6Eeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_EhlfYMrKEeyo0KHhgKsGiQ" name="fog_color" type="_1OP2AMq6Eeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_qtKVgsq9Eeyo0KHhgKsGiQ" name="textures" type="_Gb28EMq8Eeyo0KHhgKsGiQ" association="_qtJucMq9Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qtKVg8q9Eeyo0KHhgKsGiQ" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qtKVhMq9Eeyo0KHhgKsGiQ" value="2"/>
+    </ownedAttribute>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_AM08EMq-Eeyo0KHhgKsGiQ" name="world_at_method" specification="_7HPiUMq9Eeyo0KHhgKsGiQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AM08Ecq-Eeyo0KHhgKsGiQ" source="single reference object" references="_7HPiUMq9Eeyo0KHhgKsGiQ"/>
+      <language>C</language>
+      <body>if (pos_x &lt; 0 || me->width &lt;= pos_x || pos_y &lt; 0 || me->height &lt;= pos_y) return 0;&#xD;
+return me->cells[pos_y * me->width + pos_x];</body>
+    </ownedBehavior>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Kiz4cMq-Eeyo0KHhgKsGiQ" name="raycast_method" specification="_HJJ1AMq-Eeyo0KHhgKsGiQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Kiz4ccq-Eeyo0KHhgKsGiQ" source="single reference object" references="_HJJ1AMq-Eeyo0KHhgKsGiQ"/>
+      <language>C</language>
+      <body>float dist = 0;&#xD;
+int sign_x = (dir_x &lt; 0 ? -1 : 1);&#xD;
+int sign_y = (dir_y &lt; 0 ? -1 : 1);&#xD;
+int int_pos_x = rintf(pos_x);&#xD;
+int int_pos_y = rintf(pos_y);&#xD;
+int tile_type = 0;&#xD;
+do {&#xD;
+    float x_in_cell = pos_x - (float)int_pos_x;&#xD;
+    float y_in_cell = pos_y - (float)int_pos_y;&#xD;
+    float dtx = ((float)sign_x * 0.5f - x_in_cell) / dir_x;&#xD;
+    float dty = ((float)sign_y * 0.5f - y_in_cell) / dir_y;&#xD;
+    if (dtx * dtx &lt; dty * dty) {&#xD;
+        // step in x&#xD;
+        pos_x += dir_x * dtx;&#xD;
+        pos_y += dir_y * dtx;&#xD;
+        int_pos_x += sign_x;&#xD;
+        dist += fabsf(dtx);&#xD;
+    } else {&#xD;
+        // step in y&#xD;
+        pos_x += dir_x * dty;&#xD;
+        pos_y += dir_y * dty;&#xD;
+        int_pos_y += sign_y;&#xD;
+        dist += fabsf(dty);&#xD;
+    }&#xD;
+    if (10.0f /*MAX_DEPTH*/ &lt;= dist) return 0;&#xD;
+    tile_type = Duhm_World_get_tile_type_at(me, int_pos_x, int_pos_y);&#xD;
+} while (0 == tile_type);&#xD;
+if (result_dist) *result_dist = dist;&#xD;
+if (result_tile_type) {&#xD;
+    *result_tile_type = tile_type ? me->textures[tile_type - 1] : 0;&#xD;
+}&#xD;
+return 1;</body>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_7HPiUMq9Eeyo0KHhgKsGiQ" name="get_tile_type_at" method="_AM08EMq-Eeyo0KHhgKsGiQ">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_93JeIMq9Eeyo0KHhgKsGiQ" name="pos_x" type="_9dgQEMqyEeyo0KHhgKsGiQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="__IdVAMq9Eeyo0KHhgKsGiQ" name="pos_y" type="_9dgQEMqyEeyo0KHhgKsGiQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_xJTuAMrHEeyo0KHhgKsGiQ" name="result" type="_9dgQEMqyEeyo0KHhgKsGiQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_HJJ1AMq-Eeyo0KHhgKsGiQ" name="raycast" method="_Kiz4cMq-Eeyo0KHhgKsGiQ">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_NFf3oMq-Eeyo0KHhgKsGiQ" name="pos_x" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_PxjOMMq-Eeyo0KHhgKsGiQ" name="pos_y" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_S1LXQMq-Eeyo0KHhgKsGiQ" name="dir_x" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_UOc3UMq-Eeyo0KHhgKsGiQ" name="dir_y" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_WdXl8Mq-Eeyo0KHhgKsGiQ" name="result_dist" type="_sPm1IMq8Eeyo0KHhgKsGiQ" direction="out"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZpwCYMq-Eeyo0KHhgKsGiQ" name="result_tile_type" type="_Gb28EMq8Eeyo0KHhgKsGiQ" direction="out"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_dpmXkMrIEeyo0KHhgKsGiQ" name="result" type="_9dgQEMqyEeyo0KHhgKsGiQ" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Gb28EMq8Eeyo0KHhgKsGiQ" name="Texture">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UuWKQMq8Eeyo0KHhgKsGiQ" name="width" type="_9dgQEMqyEeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_WNwHgMq8Eeyo0KHhgKsGiQ" name="height" type="_9dgQEMqyEeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_YMTe4Mq8Eeyo0KHhgKsGiQ" name="data" type="_1OP2AMq6Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aCIYEMq8Eeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aCMpgMq8Eeyo0KHhgKsGiQ" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_JaOxsMq8Eeyo0KHhgKsGiQ" name="AiState">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_MkG3QMq9Eeyo0KHhgKsGiQ" name="Idle"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_N8Pu4Mq9Eeyo0KHhgKsGiQ" name="Wander"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Oyuq8Mq9Eeyo0KHhgKsGiQ" name="Hunt"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Kb1YoMq8Eeyo0KHhgKsGiQ" name="Ai">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_RXwMcsq9Eeyo0KHhgKsGiQ" name="object" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" association="_RXvlYMq9Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RXyosMq9Eeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RX1E8Mq9Eeyo0KHhgKsGiQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Snq8MMq9Eeyo0KHhgKsGiQ" name="timer" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_VtCxssq9Eeyo0KHhgKsGiQ" name="target" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" association="_VtCKoMq9Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VtDYwMq9Eeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VtDYwcq9Eeyo0KHhgKsGiQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_XvaSEMq9Eeyo0KHhgKsGiQ" name="target_pos" type="_sPm1IMq8Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YjcXEMq9Eeyo0KHhgKsGiQ" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YjmIEMq9Eeyo0KHhgKsGiQ" value="2"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Z09pUsq9Eeyo0KHhgKsGiQ" name="state" type="_JaOxsMq8Eeyo0KHhgKsGiQ" association="_Z09CQMq9Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z09pU8q9Eeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Z09pVMq9Eeyo0KHhgKsGiQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_N9swUsrREeyo0KHhgKsGiQ" name="textures" type="_Gb28EMq8Eeyo0KHhgKsGiQ" association="_N9riMMrREeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_N9tXYMrREeyo0KHhgKsGiQ" value="5"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_N9tXYcrREeyo0KHhgKsGiQ" value="5"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_VB8PIsrREeyo0KHhgKsGiQ" name="possible_targets" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" association="_VB7oEMrREeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VB82MMrREeyo0KHhgKsGiQ" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VB82McrREeyo0KHhgKsGiQ" value="2"/>
+    </ownedAttribute>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9mSFsMq_Eeyo0KHhgKsGiQ" name="update_method" specification="_9HLH0Mq_Eeyo0KHhgKsGiQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9mSFscq_Eeyo0KHhgKsGiQ" source="single reference object" references="_9HLH0Mq_Eeyo0KHhgKsGiQ"/>
+      <language>C</language>
+      <body>Duhm_Object *obj = me->object;&#xD;
+me->timer += random_float() * dt;&#xD;
+if (1.0f &lt;= me->timer) {&#xD;
+    me->timer = 0.0f;&#xD;
+    uint32_t rand = random_uint32();&#xD;
+    switch (rand &amp; 3) {&#xD;
+        case 0: {&#xD;
+            // Jump&#xD;
+            if (0.0f == obj->pos[2]) {&#xD;
+                obj->vel[2] = 2.0f;&#xD;
+            }&#xD;
+            me->state = Duhm_AiState_Idle;&#xD;
+        } break;&#xD;
+        case 1:&#xD;
+        case 2: {&#xD;
+            me->target_pos[0] = obj->pos[0] + (float)((rand >>  1) &amp; 0x3FF) / 512.0f - 1.0f;&#xD;
+            me->target_pos[1] = obj->pos[1] + (float)((rand >> 11) &amp; 0x3FF) / 512.0f - 1.0f;&#xD;
+            float dx = me->target_pos[0] - obj->pos[0];&#xD;
+            float dy = me->target_pos[1] - obj->pos[1];&#xD;
+            float dist = sqrtf(dx * dx + dy * dy);&#xD;
+            me->object->view[0] = dx / dist;&#xD;
+            me->object->view[1] = dy / dist;&#xD;
+            me->state = Duhm_AiState_Wander;&#xD;
+        } break;&#xD;
+        case 3: {&#xD;
+            me->state = Duhm_AiState_Hunt;&#xD;
+            float min_dist = 100.0f;&#xD;
+            for (int i = 0; i &lt; 2; ++i) {&#xD;
+                float dx = me->possible_targets[i]->pos[0] - obj->pos[0];&#xD;
+                float dy = me->possible_targets[i]->pos[1] - obj->pos[1];&#xD;
+                float dist_sq = dx * dx + dy * dy;&#xD;
+                if (dist_sq &lt; min_dist) {&#xD;
+                    min_dist = dist_sq;&#xD;
+                    me->target = me->possible_targets[i];&#xD;
+                }&#xD;
+            }&#xD;
+        } break;&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+switch (me->state) {&#xD;
+    case Duhm_AiState_Idle: {&#xD;
+&#xD;
+    } break;&#xD;
+    case Duhm_AiState_Wander: {&#xD;
+        obj->vel[0] = fminf(fmaxf(me->target_pos[0] - obj->pos[0], -0.5f), 0.5f);&#xD;
+        obj->vel[1] = fminf(fmaxf(me->target_pos[1] - obj->pos[1], -0.5f), 0.5f);&#xD;
+    } break;&#xD;
+    case Duhm_AiState_Hunt: {&#xD;
+        float dx = me->target->pos[0] - obj->pos[0];&#xD;
+        float dy = me->target->pos[1] - obj->pos[1];&#xD;
+        float dist = sqrtf(dx * dx + dy * dy);&#xD;
+        me->object->view[0] = dx / dist;&#xD;
+        me->object->view[1] = dy / dist;&#xD;
+        obj->vel[0] = me->object->view[0] * 1.5f;&#xD;
+        obj->vel[1] = me->object->view[1] * 1.5f;&#xD;
+        if (dist &lt; 0.5f &amp;&amp; 0.0f == obj->pos[2] &amp;&amp; 0.25f &lt; me->target->pos[2]) {&#xD;
+            obj->vel[2] = 2.0f;&#xD;
+        }&#xD;
+    } break;&#xD;
+}&#xD;
+&#xD;
+if (0.01f &lt; obj->pos[2]) {&#xD;
+    // Object is jumping&#xD;
+    obj->texture = me->textures[1];&#xD;
+    obj->walk_dist = 0.0f;&#xD;
+} else {&#xD;
+    float dist = sqrtf(obj->vel[0] * obj->vel[0] + obj->vel[1] * obj->vel[1]) * dt;&#xD;
+    if (0.005f &lt; dist) {&#xD;
+        // Object is moving&#xD;
+        obj->walk_dist += dist;&#xD;
+        // The walk cycle repeats 4 times per tile, so we limit the&#xD;
+        // value to 0.25f, to avoid the value potentially growing&#xD;
+        // a lot and losing precision.&#xD;
+        while (0.25f &lt;= obj->walk_dist) obj->walk_dist -= 0.25f;&#xD;
+        int walk_cycle = (int)(obj->walk_dist * 12.0f);&#xD;
+        obj->texture = me->textures[2 + walk_cycle];&#xD;
+    } else {&#xD;
+        // Object is standing&#xD;
+        obj->walk_dist = 0.0f;&#xD;
+        obj->texture = me->textures[0];&#xD;
+    }&#xD;
+}</body>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_9HLH0Mq_Eeyo0KHhgKsGiQ" name="update" method="_9mSFsMq_Eeyo0KHhgKsGiQ">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eN-z0MrEEeyo0KHhgKsGiQ" name="dt" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Lv3MUMq8Eeyo0KHhgKsGiQ" name="Sprite">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_cTjLoMq9Eeyo0KHhgKsGiQ" name="distance" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_e_l7IMq9Eeyo0KHhgKsGiQ" name="bounds" type="_9dgQEMqyEeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_goBRgMq9Eeyo0KHhgKsGiQ" value="4"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_goOF0Mq9Eeyo0KHhgKsGiQ" value="4"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_hjPjoMq9Eeyo0KHhgKsGiQ" name="texture" type="_Gb28EMq8Eeyo0KHhgKsGiQ" association="_hjO8kMq9Eeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hjPjocq9Eeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hjPjosq9Eeyo0KHhgKsGiQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_C6zYUM9rEey6GYEgkWbSfw" name="flags" type="_9dgQEMqyEeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1JsbQMq8Eeyo0KHhgKsGiQ" memberEnd="_1J3aYMq8Eeyo0KHhgKsGiQ _1J4BcMq8Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1J2MQMq8Eeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1J2MQcq8Eeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_1J4BcMq8Eeyo0KHhgKsGiQ" name="object" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" association="_1JsbQMq8Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_RXvlYMq9Eeyo0KHhgKsGiQ" memberEnd="_RXwMcsq9Eeyo0KHhgKsGiQ _RX4IQMq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RXwMcMq9Eeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RXwMccq9Eeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_RX4IQMq9Eeyo0KHhgKsGiQ" name="ai" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" association="_RXvlYMq9Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_VtCKoMq9Eeyo0KHhgKsGiQ" memberEnd="_VtCxssq9Eeyo0KHhgKsGiQ _VtDYwsq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VtCxsMq9Eeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VtCxscq9Eeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_VtDYwsq9Eeyo0KHhgKsGiQ" name="ai" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" association="_VtCKoMq9Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Z09CQMq9Eeyo0KHhgKsGiQ" memberEnd="_Z09pUsq9Eeyo0KHhgKsGiQ _Z0-QYMq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Z09pUMq9Eeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Z09pUcq9Eeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Z0-QYMq9Eeyo0KHhgKsGiQ" name="ai" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" association="_Z09CQMq9Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_hjO8kMq9Eeyo0KHhgKsGiQ" memberEnd="_hjPjoMq9Eeyo0KHhgKsGiQ _hjPjo8q9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hjO8kcq9Eeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hjO8ksq9Eeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_hjPjo8q9Eeyo0KHhgKsGiQ" name="sprite" type="_Lv3MUMq8Eeyo0KHhgKsGiQ" association="_hjO8kMq9Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_n0bN0Mq9Eeyo0KHhgKsGiQ" memberEnd="_n0b04sq9Eeyo0KHhgKsGiQ _n0b05cq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n0b04Mq9Eeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n0b04cq9Eeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_n0b05cq9Eeyo0KHhgKsGiQ" name="game" type="_B990cMq8Eeyo0KHhgKsGiQ" association="_n0bN0Mq9Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qtJucMq9Eeyo0KHhgKsGiQ" memberEnd="_qtKVgsq9Eeyo0KHhgKsGiQ _qtK8kMq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qtKVgMq9Eeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qtKVgcq9Eeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qtK8kMq9Eeyo0KHhgKsGiQ" name="world" type="_E_TegMq8Eeyo0KHhgKsGiQ" association="_qtJucMq9Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_0L7WAMq9Eeyo0KHhgKsGiQ" memberEnd="_0L79Esq9Eeyo0KHhgKsGiQ _0L79Fcq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0L79EMq9Eeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0L79Ecq9Eeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_0L79Fcq9Eeyo0KHhgKsGiQ" name="game" type="_B990cMq8Eeyo0KHhgKsGiQ" association="_0L7WAMq9Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_6aB3AMq9Eeyo0KHhgKsGiQ" memberEnd="_6aCeEsq9Eeyo0KHhgKsGiQ _6aDFIsq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6aCeEMq9Eeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6aCeEcq9Eeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_6aDFIsq9Eeyo0KHhgKsGiQ" name="game" type="_B990cMq8Eeyo0KHhgKsGiQ" association="_6aB3AMq9Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_Jp1zoMq_Eeyo0KHhgKsGiQ" client="_Cv5nsMq8Eeyo0KHhgKsGiQ" supplier="_G5i2QMq_Eeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_VWm8wMq_Eeyo0KHhgKsGiQ" memberEnd="_VWnj0sq_Eeyo0KHhgKsGiQ _VWoK4cq_Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VWnj0Mq_Eeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VWnj0cq_Eeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_VWoK4cq_Eeyo0KHhgKsGiQ" name="game" type="_B990cMq8Eeyo0KHhgKsGiQ" association="_VWm8wMq_Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_BxmPkMrAEeyo0KHhgKsGiQ" client="_Kb1YoMq8Eeyo0KHhgKsGiQ" supplier="_75X0wMq7Eeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_luCW0MrCEeyo0KHhgKsGiQ" client="_me610MrxEeyo0KHhgKsGiQ" supplier="_XWE28Mq7Eeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_oNUcsMrCEeyo0KHhgKsGiQ" client="_B990cMq8Eeyo0KHhgKsGiQ" supplier="_37uTcMq7Eeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_pRTCMMrCEeyo0KHhgKsGiQ" client="_me610MrxEeyo0KHhgKsGiQ" supplier="_r-8YYMq7Eeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_UwqA8MrIEeyo0KHhgKsGiQ" client="_E_TegMq8Eeyo0KHhgKsGiQ" supplier="_G5i2QMq_Eeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_V0akAMrIEeyo0KHhgKsGiQ" client="_Kb1YoMq8Eeyo0KHhgKsGiQ" supplier="_G5i2QMq_Eeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_eUR6AMrNEeyo0KHhgKsGiQ" client="_B990cMq8Eeyo0KHhgKsGiQ" supplier="_Lv3MUMq8Eeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_0OPlAMrPEeyo0KHhgKsGiQ" client="_B990cMq8Eeyo0KHhgKsGiQ" supplier="_V1SvwMqyEeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_N9riMMrREeyo0KHhgKsGiQ" memberEnd="_N9swUsrREeyo0KHhgKsGiQ _N9tXYsrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N9swUMrREeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N9swUcrREeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_N9tXYsrREeyo0KHhgKsGiQ" name="ai" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" association="_N9riMMrREeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_VB7oEMrREeyo0KHhgKsGiQ" memberEnd="_VB8PIsrREeyo0KHhgKsGiQ _VB82MsrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VB8PIMrREeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VB8PIcrREeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_VB82MsrREeyo0KHhgKsGiQ" name="ai" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" association="_VB7oEMrREeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_Sl2GgMrZEeyo0KHhgKsGiQ" client="_B990cMq8Eeyo0KHhgKsGiQ" supplier="_ABk54Mq0Eeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_1JNz8MrZEeyo0KHhgKsGiQ" name="game" classifier="_B990cMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_UP2sEcrrEeyo0KHhgKsGiQ" definingFeature="_6aCeEsq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_UP3TIMrrEeyo0KHhgKsGiQ" name="InstanceValue0" type="_E_TegMq8Eeyo0KHhgKsGiQ" instance="_h67EAMriEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_bKphIM9jEey6GYEgkWbSfw" definingFeature="_VWnj0sq_Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_bKqIMM9jEey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_7dgcgMrZEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_jn5aQc9jEey6GYEgkWbSfw" definingFeature="_n0b04sq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_jn5aQs9jEey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_7dgcgMrZEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_lnTGMM9jEey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_9fXmkMrZEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_qn0ZwM9jEey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_AgenIMraEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_nQZK8c9jEey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="__CUAAMrZEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_sH66ks9jEey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_CHdzEMraEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_tyGkcM9jEey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_DajyoMraEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_SEizEc91Eey6GYEgkWbSfw" definingFeature="_ckc7UsryEeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_SEizEs91Eey6GYEgkWbSfw" name="InstanceValue0" type="_me610MrxEeyo0KHhgKsGiQ" instance="_NA1BkM91Eey6GYEgkWbSfw"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_wfkCsc-DEey6GYEgkWbSfw" definingFeature="_0L79Esq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_wfkCss-DEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_FoXuAMraEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_xyPLgs-DEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_GvIhwMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_7dgcgMrZEeyo0KHhgKsGiQ" name="player" classifier="_Cv5nsMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="__YxLoMruEeyo0KHhgKsGiQ" definingFeature="_2zlKMMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_EArx8MrvEeyo0KHhgKsGiQ" value="1.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_FGJlMMrvEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_w6bSYM-GEey6GYEgkWbSfw" definingFeature="_qp4NcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_1VnEQM-GEey6GYEgkWbSfw" value="3.5"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_5seW0M-GEey6GYEgkWbSfw" value="3.5"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_6gyvsM-GEey6GYEgkWbSfw"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_28sW0M-GEey6GYEgkWbSfw" definingFeature="_yDe4QMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_HAUygM-HEey6GYEgkWbSfw" value="0.5"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_PYCrYM-HEey6GYEgkWbSfw" value="0.5"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_9fXmkMrZEeyo0KHhgKsGiQ" name="mario0" classifier="_Cv5nsMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_U5CiEcriEeyo0KHhgKsGiQ" definingFeature="_1J3aYMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_U5DJIMriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_ajxw8MraEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_Grkq4MrvEeyo0KHhgKsGiQ" definingFeature="_2zlKMMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_Grkq4crvEeyo0KHhgKsGiQ" value="1.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_Grkq4srvEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_I1K0oMrvEeyo0KHhgKsGiQ" definingFeature="_5phckMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_dQozQMrvEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>0x02 /*Object_Flags_Shadow*/</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_T1zQIM-HEey6GYEgkWbSfw" definingFeature="_qp4NcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_jK5K0M-HEey6GYEgkWbSfw" value="2.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_kPiesM-HEey6GYEgkWbSfw" value="2.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_lA7fYM-HEey6GYEgkWbSfw"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_UU61EM-HEey6GYEgkWbSfw" definingFeature="_yDe4QMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_tPbK0M-HEey6GYEgkWbSfw" value="0.4"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_ucgpAM-HEey6GYEgkWbSfw" value="0.53"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="__CUAAMrZEeyo0KHhgKsGiQ" name="mario1" classifier="_Cv5nsMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_V0qc0criEeyo0KHhgKsGiQ" definingFeature="_1J3aYMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_V0rD4MriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_ajxw8MraEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_HA-TIMrvEeyo0KHhgKsGiQ" definingFeature="_2zlKMMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_HA-TIcrvEeyo0KHhgKsGiQ" value="1.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_HA-TIsrvEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_kGwWgMrvEeyo0KHhgKsGiQ" definingFeature="_5phckMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_kGwWgcrvEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>0x02 /*Object_Flags_Shadow*/</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_Uzau8M-HEey6GYEgkWbSfw" definingFeature="_qp4NcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_mk-FAM-HEey6GYEgkWbSfw" value="5.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_nlH6cM-HEey6GYEgkWbSfw" value="2.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_o8G7gM-HEey6GYEgkWbSfw"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_VNteQM-HEey6GYEgkWbSfw" definingFeature="_yDe4QMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_wdsdoM-HEey6GYEgkWbSfw" value="0.4"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_xgQt4M-HEey6GYEgkWbSfw" value="0.53"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_AgenIMraEeyo0KHhgKsGiQ" name="ball0" classifier="_Cv5nsMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_OxswYcriEeyo0KHhgKsGiQ" definingFeature="_1J3aYMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_Oxt-gMriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_NAa5oMraEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_nGk9oMrvEeyo0KHhgKsGiQ" definingFeature="_5phckMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_nGk9ocrvEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>0x02 /*Object_Flags_Shadow*/ | 0x04 /*Object_Flags_Bouncy*/</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_Vt8dgM-HEey6GYEgkWbSfw" definingFeature="_qp4NcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_0JgoEM-HEey6GYEgkWbSfw" value="4.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_1JNxkM-HEey6GYEgkWbSfw" value="3.5"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_2NkKgM-HEey6GYEgkWbSfw" value="0.5"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_WLq7UM-HEey6GYEgkWbSfw" definingFeature="_yDe4QMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_3sUngM-HEey6GYEgkWbSfw" value="0.2"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_4dBrsM-HEey6GYEgkWbSfw" value="0.2"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_CHdzEMraEeyo0KHhgKsGiQ" name="ball1" classifier="_Cv5nsMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_QWEtMcriEeyo0KHhgKsGiQ" definingFeature="_1J3aYMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_QWFUQMriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_NAa5oMraEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_xQzV8MrvEeyo0KHhgKsGiQ" definingFeature="_5phckMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_xQzV8crvEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>0x02 /*Object_Flags_Shadow*/ | 0x04 /*Object_Flags_Bouncy*/</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_WmGNgM-HEey6GYEgkWbSfw" definingFeature="_qp4NcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_6HzygM-HEey6GYEgkWbSfw" value="3.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_-KLbwM-HEey6GYEgkWbSfw" value="3.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="__NkycM-HEey6GYEgkWbSfw" value="0.5"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_XAUrYM-HEey6GYEgkWbSfw" definingFeature="_yDe4QMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_ArI8oM-IEey6GYEgkWbSfw" value="0.2"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_BgR04M-IEey6GYEgkWbSfw" value="0.2"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_DajyoMraEeyo0KHhgKsGiQ" name="sun" classifier="_Cv5nsMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_SNQRQMriEeyo0KHhgKsGiQ" definingFeature="_1J3aYMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_SNQ4UMriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_U1RZMMreEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_zhGkoMrvEeyo0KHhgKsGiQ" definingFeature="_5phckMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_-vehkMrvEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>0x01 /*Object_Flags_No_Collision*/ | 0x08 /*Object_Flags_Frozen*/</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_XaxLsM-HEey6GYEgkWbSfw" definingFeature="_qp4NcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_FGmbUM-IEey6GYEgkWbSfw" value="4.5"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_GhMKAM-IEey6GYEgkWbSfw" value="9.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_IQZd0M-IEey6GYEgkWbSfw" value="3.0"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_X0ONgM-HEey6GYEgkWbSfw" definingFeature="_yDe4QMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_J7u-QM-IEey6GYEgkWbSfw" value="1.0"/>
+      <value xmi:type="uml:LiteralReal" xmi:id="_K5Un4M-IEey6GYEgkWbSfw" value="1.0"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_FoXuAMraEeyo0KHhgKsGiQ" name="mario0ai" classifier="_Kb1YoMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_ZDaQwcriEeyo0KHhgKsGiQ" definingFeature="_RXwMcsq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_ZDa30MriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_9fXmkMrZEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_O6dLwc9sEey6GYEgkWbSfw" definingFeature="_N9swUsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_O6dLws9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_ajxw8MraEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_QjdJ4s9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_fcxgMMraEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_Rvcb4s9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_KyzrMMrdEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_TD0N0s9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_NhVG8MrdEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_UQv7AM9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_PgHH0MrdEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_xhNOQc91Eey6GYEgkWbSfw" definingFeature="_VB8PIsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_xhN1UM91Eey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_AgenIMraEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_4aeMIc91Eey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_CHdzEMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_GvIhwMraEeyo0KHhgKsGiQ" name="mario1ai" classifier="_Kb1YoMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_azEQgcriEeyo0KHhgKsGiQ" definingFeature="_RXwMcsq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_azFeoMriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="__CUAAMrZEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_0D338M94Eey6GYEgkWbSfw" definingFeature="_N9swUsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_gDE5ks9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_ajxw8MraEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_hSpEAs9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_fcxgMMraEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_iiMnYc9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_KyzrMMrdEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_kDwgws9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_NhVG8MrdEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_laqCQc9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_PgHH0MrdEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_55lOcc91Eey6GYEgkWbSfw" definingFeature="_VB8PIsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_55l1gM91Eey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_AgenIMraEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_7ue6ks91Eey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_CHdzEMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NAa5oMraEeyo0KHhgKsGiQ" name="texBall" classifier="_Gb28EMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_hoQjgMreEeyo0KHhgKsGiQ" definingFeature="_UuWKQMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_hp9-QMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>ball_width</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_IHuTEMrfEeyo0KHhgKsGiQ" definingFeature="_WNwHgMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_ios3YMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>ball_height</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_I3NPQMrfEeyo0KHhgKsGiQ" definingFeature="_YMTe4Mq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_jbniEMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>ball_data</body>
+      </value>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Wwu9IMraEeyo0KHhgKsGiQ" name="texCobblestone" classifier="_Gb28EMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_NaJO8MrfEeyo0KHhgKsGiQ" definingFeature="_UuWKQMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_kNENIMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>cobblestone_width</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_OCK4QMrfEeyo0KHhgKsGiQ" definingFeature="_WNwHgMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_lBgh0MrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>cobblestone_height</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_OKbcYMrfEeyo0KHhgKsGiQ" definingFeature="_YMTe4Mq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_l2Tb0MrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>cobblestone_data</body>
+      </value>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Y12PgMraEeyo0KHhgKsGiQ" name="texDirt" classifier="_Gb28EMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_MBGYYMrfEeyo0KHhgKsGiQ" definingFeature="_UuWKQMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_m666gMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>dirt_width</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_Mdh1sMrfEeyo0KHhgKsGiQ" definingFeature="_WNwHgMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_oFdbAMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>dirt_height</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_M5O6QMrfEeyo0KHhgKsGiQ" definingFeature="_YMTe4Mq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_o5e48MrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>dirt_data</body>
+      </value>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_ajxw8MraEeyo0KHhgKsGiQ" name="texMario" classifier="_Gb28EMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_QFNuEMrfEeyo0KHhgKsGiQ" definingFeature="_UuWKQMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_sU_WgMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_width</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_QH2yYMrfEeyo0KHhgKsGiQ" definingFeature="_WNwHgMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_tMg0YMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_height</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_QKIqUMrfEeyo0KHhgKsGiQ" definingFeature="_YMTe4Mq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_uEwrAMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_data</body>
+      </value>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_fcxgMMraEeyo0KHhgKsGiQ" name="texMarioJump" classifier="_Gb28EMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_Q_MqEMrfEeyo0KHhgKsGiQ" definingFeature="_UuWKQMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_u7TRcMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_jump_width</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_RBcs0MrfEeyo0KHhgKsGiQ" definingFeature="_WNwHgMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_vuIckMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_jump_height</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_ROH24MrfEeyo0KHhgKsGiQ" definingFeature="_YMTe4Mq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_wi0B0MrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_jump_data</body>
+      </value>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_KyzrMMrdEeyo0KHhgKsGiQ" name="texMarioWalk0" classifier="_Gb28EMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_Rp2woMrfEeyo0KHhgKsGiQ" definingFeature="_UuWKQMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_xVDXEMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_walk0_width</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_RsVc4MrfEeyo0KHhgKsGiQ" definingFeature="_WNwHgMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_yBXDcMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_walk0_height</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_R4fpkMrfEeyo0KHhgKsGiQ" definingFeature="_YMTe4Mq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_yukuwMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_walk0_data</body>
+      </value>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NhVG8MrdEeyo0KHhgKsGiQ" name="texMarioWalk1" classifier="_Gb28EMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_SmbGkMrfEeyo0KHhgKsGiQ" definingFeature="_UuWKQMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_zzoSUMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_walk1_width</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_Srfz0MrfEeyo0KHhgKsGiQ" definingFeature="_WNwHgMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_0n0vYMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_walk1_height</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_SxqGMMrfEeyo0KHhgKsGiQ" definingFeature="_YMTe4Mq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_1cnCUMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_walk1_data</body>
+      </value>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_PgHH0MrdEeyo0KHhgKsGiQ" name="texMarioWalk2" classifier="_Gb28EMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_TQ18kMrfEeyo0KHhgKsGiQ" definingFeature="_UuWKQMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_2Se6YMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_walk2_width</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_TWiU4MrfEeyo0KHhgKsGiQ" definingFeature="_WNwHgMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_3AIDgMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_walk2_height</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_TatqQMrfEeyo0KHhgKsGiQ" definingFeature="_YMTe4Mq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_3ybDIMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>mario_walk2_data</body>
+      </value>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_U1RZMMreEeyo0KHhgKsGiQ" name="texSun" classifier="_Gb28EMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_OlPJEMrfEeyo0KHhgKsGiQ" definingFeature="_UuWKQMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_puf1YMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>sun_width</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_PeBLMMrfEeyo0KHhgKsGiQ" definingFeature="_WNwHgMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_qhf_oMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>sun_height</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_PgVfYMrfEeyo0KHhgKsGiQ" definingFeature="_YMTe4Mq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_rTuGwMrfEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>sun_data</body>
+      </value>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_OX_28MriEeyo0KHhgKsGiQ" name="InstanceSpecification57" classifier="_1JsbQMq8Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OxswYMriEeyo0KHhgKsGiQ" source="InstanceEnd" references="_NAa5oMraEeyo0KHhgKsGiQ _AgenIMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_Oxt-gcriEeyo0KHhgKsGiQ" definingFeature="_1J4BcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_Oxt-gsriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_AgenIMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_P6wDIMriEeyo0KHhgKsGiQ" name="InstanceSpecification58" classifier="_1JsbQMq8Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QWEtMMriEeyo0KHhgKsGiQ" source="InstanceEnd" references="_NAa5oMraEeyo0KHhgKsGiQ _CHdzEMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_QWF7UMriEeyo0KHhgKsGiQ" definingFeature="_1J4BcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_QWF7UcriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_CHdzEMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_R2Z3gMriEeyo0KHhgKsGiQ" name="InstanceSpecification59" classifier="_1JsbQMq8Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SNPqMMriEeyo0KHhgKsGiQ" source="InstanceEnd" references="_U1RZMMreEeyo0KHhgKsGiQ _DajyoMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_SNQ4UcriEeyo0KHhgKsGiQ" definingFeature="_1J4BcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_SNQ4UsriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_DajyoMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_UkmjIMriEeyo0KHhgKsGiQ" name="InstanceSpecification60" classifier="_1JsbQMq8Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5CiEMriEeyo0KHhgKsGiQ" source="InstanceEnd" references="_ajxw8MraEeyo0KHhgKsGiQ _9fXmkMrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_U5DJIcriEeyo0KHhgKsGiQ" definingFeature="_1J4BcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_U5DJIsriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_9fXmkMrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_VgTWYMriEeyo0KHhgKsGiQ" name="InstanceSpecification61" classifier="_1JsbQMq8Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_V0qc0MriEeyo0KHhgKsGiQ" source="InstanceEnd" references="_ajxw8MraEeyo0KHhgKsGiQ __CUAAMrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_V0rD4criEeyo0KHhgKsGiQ" definingFeature="_1J4BcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_V0rD4sriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="__CUAAMrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_XyliEMriEeyo0KHhgKsGiQ" name="InstanceSpecification62" classifier="_RXvlYMq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZDaQwMriEeyo0KHhgKsGiQ" source="InstanceEnd" references="_9fXmkMrZEeyo0KHhgKsGiQ _FoXuAMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_ZDa30criEeyo0KHhgKsGiQ" definingFeature="_RX4IQMq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_ZDa30sriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_FoXuAMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Z_2D0MriEeyo0KHhgKsGiQ" name="InstanceSpecification63" classifier="_RXvlYMq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_azEQgMriEeyo0KHhgKsGiQ" source="InstanceEnd" references="__CUAAMrZEeyo0KHhgKsGiQ _GvIhwMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_azFeocriEeyo0KHhgKsGiQ" definingFeature="_RX4IQMq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_azFeosriEeyo0KHhgKsGiQ" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_GvIhwMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_h67EAMriEeyo0KHhgKsGiQ" name="world" classifier="_E_TegMq8Eeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_kpMoIMriEeyo0KHhgKsGiQ" definingFeature="_e1xtQMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_YhlfQM-GEey6GYEgkWbSfw">
+        <language>C</language>
+        <body>world_width</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_lM05oMriEeyo0KHhgKsGiQ" definingFeature="_gHP8MMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_bZ4iEM-GEey6GYEgkWbSfw">
+        <language>C</language>
+        <body>world_height</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_sQLAkMriEeyo0KHhgKsGiQ" definingFeature="_A84pkMrKEeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_zFJpcMrkEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>{0xC79F}</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_sr8WkMriEeyo0KHhgKsGiQ" definingFeature="_Cw16gMrKEeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_3H3Q8MrkEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>{0x9726}</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_tOEzQMriEeyo0KHhgKsGiQ" definingFeature="_EhlfYMrKEeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_SaH5gMrrEeyo0KHhgKsGiQ">
+        <language>C</language>
+        <body>{0xDFBF}</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_xRPtwMriEeyo0KHhgKsGiQ" definingFeature="_9BubkMrJEeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_6zmNwMriEeyo0KHhgKsGiQ" value="1.0"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_yzx3gMriEeyo0KHhgKsGiQ" definingFeature="_-fQJgMrJEeyo0KHhgKsGiQ">
+      <value xmi:type="uml:LiteralReal" xmi:id="_7q9TkMriEeyo0KHhgKsGiQ"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_Q6UL4M-GEey6GYEgkWbSfw" definingFeature="_kFWJcMq8Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:OpaqueExpression" xmi:id="_UnnkEM-GEey6GYEgkWbSfw">
+        <language>C</language>
+        <body>world_data</body>
+      </value>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_28ORAc9rEey6GYEgkWbSfw" definingFeature="_qtKVgsq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_28O4EM9rEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_Wwu9IMraEeyo0KHhgKsGiQ"/>
+      <value xmi:type="uml:InstanceValue" xmi:id="_4UnnUM9rEey6GYEgkWbSfw" name="InstanceValue0" type="_Gb28EMq8Eeyo0KHhgKsGiQ" instance="_Y12PgMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_T8lx0MrrEeyo0KHhgKsGiQ" name="InstanceSpecification65" classifier="_6aB3AMq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UP2sEMrrEeyo0KHhgKsGiQ" source="InstanceEnd" references="_h67EAMriEeyo0KHhgKsGiQ _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_UP3TIcrrEeyo0KHhgKsGiQ" definingFeature="_6aDFIsq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_UP3TIsrrEeyo0KHhgKsGiQ" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_me610MrxEeyo0KHhgKsGiQ" name="Controls">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_dXuLUsryEeyo0KHhgKsGiQ" name="player" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" association="_dXtkQMryEeyo0KHhgKsGiQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dXuyYMryEeyo0KHhgKsGiQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dXuyYcryEeyo0KHhgKsGiQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_qI0NUMr0Eeyo0KHhgKsGiQ" name="prev_z" type="_9dgQEMqyEeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_qrRaIMr0Eeyo0KHhgKsGiQ" name="prev_b" type="_9dgQEMqyEeyo0KHhgKsGiQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_t56gYMr0Eeyo0KHhgKsGiQ" name="view_angle" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_8Mm_YMrzEeyo0KHhgKsGiQ" name="process_inputs_method" specification="_2h5fUMrzEeyo0KHhgKsGiQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8Mm_YcrzEeyo0KHhgKsGiQ" source="single reference object" references="_2h5fUMrzEeyo0KHhgKsGiQ"/>
+      <language>C</language>
+      <body>// Input&#xD;
+uint16_t joy_vals[2];&#xD;
+adc_get_values(ADC_0, ADC_Channel_0, joy_vals, 2);&#xD;
+&#xD;
+{&#xD;
+    int new_z = gpio_get(PORTE, PIN4);&#xD;
+    if (new_z != me->prev_z) {&#xD;
+        if (new_z) {&#xD;
+            // TODO: z was released&#xD;
+        } else {&#xD;
+            // TODO: z was pressed&#xD;
+        }&#xD;
+        me->prev_z = new_z;&#xD;
+    }&#xD;
+}&#xD;
+int strafe = !gpio_get(PORTD, PIN6);&#xD;
+{&#xD;
+    int new_b = gpio_get(PORTD, PIN7);&#xD;
+    if (new_b != me->prev_b) {&#xD;
+        if (new_b) {&#xD;
+            // TODO: B was released&#xD;
+        } else {&#xD;
+            // B was pressed&#xD;
+            if (0.0f == me->player->pos[2]) {&#xD;
+                me->player->vel[2] = 2.0f;&#xD;
+            }&#xD;
+        }&#xD;
+        me->prev_b = new_b;&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+// Processing&#xD;
+{&#xD;
+    const float deadzone = 0.1f;&#xD;
+    &#xD;
+    float joy_y = (float)joy_vals[1] / (float)ADC_MAX_VAL - 0.5f;&#xD;
+    float joy_x = (float)joy_vals[0] / (float)ADC_MAX_VAL - 0.5f;&#xD;
+    float move_x = 0.0f;&#xD;
+    float move_y = 0.0f;&#xD;
+&#xD;
+    if (joy_y &lt; -deadzone) {&#xD;
+        move_x = (joy_y + deadzone) * 10.0f;&#xD;
+    } else if (deadzone &lt; joy_y) {&#xD;
+        move_x = (joy_y - deadzone) * 10.0f;&#xD;
+    }&#xD;
+    if (strafe) {&#xD;
+        if (joy_x &lt; -deadzone) {&#xD;
+            move_y = (joy_x + deadzone) * 10.0f;&#xD;
+        } else if (deadzone &lt; joy_x) {&#xD;
+            move_y = (joy_x - deadzone) * 10.0f;&#xD;
+        }&#xD;
+    } else {&#xD;
+        if (joy_x &lt; -deadzone) {&#xD;
+            me->view_angle += (joy_x + deadzone) * 10.0f * dt;&#xD;
+            me->player->view[0] = cosf(me->view_angle);&#xD;
+            me->player->view[1] = sinf(me->view_angle);&#xD;
+        }&#xD;
+        if (deadzone &lt; joy_x) {&#xD;
+            me->view_angle += (joy_x - deadzone) * 10.0f * dt;&#xD;
+            me->player->view[0] = cosf(me->view_angle);&#xD;
+            me->player->view[1] = sinf(me->view_angle);&#xD;
+        }&#xD;
+    }&#xD;
+    me->player->vel[0] = me->player->view[0] * move_x - me->player->view[1] * move_y;&#xD;
+    me->player->vel[1] = me->player->view[1] * move_x + me->player->view[0] * move_y;&#xD;
+}</body>
+    </ownedBehavior>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_89i3oMr0Eeyo0KHhgKsGiQ" name="init_method" specification="_6O5gEMr0Eeyo0KHhgKsGiQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_89i3ocr0Eeyo0KHhgKsGiQ" source="single reference object" references="_6O5gEMr0Eeyo0KHhgKsGiQ"/>
+      <language>C</language>
+      <body>gpio_init(PORTB);&#xD;
+gpio_init(PORTC);&#xD;
+gpio_init(PORTD);&#xD;
+gpio_init(PORTE);&#xD;
+adc_init(ADC_0);&#xD;
+&#xD;
+gpio_mode(PORTB, PIN5, ANALOG); // Joystick X (PB5 == AIN_11)&#xD;
+gpio_mode(PORTD, PIN3, ANALOG); // Joystick Y (PD3 == AIN_4)&#xD;
+&#xD;
+gpio_mode(PORTD, PIN6, INPUT); // Button A (PD6)&#xD;
+gpio_mode(PORTD, PIN7, INPUT); // Button B (PD7)&#xD;
+gpio_mode(PORTE, PIN4, INPUT); // Button Z (PE4)&#xD;
+&#xD;
+add_input_to_channel(ADC_0, ADC_Channel_0, AIN_11);&#xD;
+add_input_to_channel(ADC_0, ADC_Channel_0, AIN_4);&#xD;
+adc_start(ADC_0, ADC_Channel_0);</body>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_2h5fUMrzEeyo0KHhgKsGiQ" name="process_inputs" method="_8Mm_YMrzEeyo0KHhgKsGiQ">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7I-_MMrzEeyo0KHhgKsGiQ" name="dt" type="_sPm1IMq8Eeyo0KHhgKsGiQ"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6O5gEMr0Eeyo0KHhgKsGiQ" name="init" method="_89i3oMr0Eeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ckbGIMryEeyo0KHhgKsGiQ" memberEnd="_ckc7UsryEeyo0KHhgKsGiQ _ckdiYsryEeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ckc7UMryEeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ckc7UcryEeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ckdiYsryEeyo0KHhgKsGiQ" name="game" type="_B990cMq8Eeyo0KHhgKsGiQ" association="_ckbGIMryEeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_dXtkQMryEeyo0KHhgKsGiQ" memberEnd="_dXuLUsryEeyo0KHhgKsGiQ _dXuyYsryEeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dXuLUMryEeyo0KHhgKsGiQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXuLUcryEeyo0KHhgKsGiQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dXuyYsryEeyo0KHhgKsGiQ" name="controls" type="_me610MrxEeyo0KHhgKsGiQ" association="_dXtkQMryEeyo0KHhgKsGiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_af4F0M9jEey6GYEgkWbSfw" name="InstanceSpecification69" classifier="_VWm8wMq_Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bKo6EM9jEey6GYEgkWbSfw" source="InstanceEnd" references="_7dgcgMrZEeyo0KHhgKsGiQ _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_bKqvQM9jEey6GYEgkWbSfw" definingFeature="_VWoK4cq_Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_bKqvQc9jEey6GYEgkWbSfw" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_hpSYgM9jEey6GYEgkWbSfw" name="InstanceSpecification70" classifier="_n0bN0Mq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jn5aQM9jEey6GYEgkWbSfw" source="InstanceEnd" references="_7dgcgMrZEeyo0KHhgKsGiQ _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_jn5aQ89jEey6GYEgkWbSfw" definingFeature="_n0b05cq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_jn6BUM9jEey6GYEgkWbSfw" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_k2G50M9jEey6GYEgkWbSfw" name="InstanceSpecification71" classifier="_n0bN0Mq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lnSfIM9jEey6GYEgkWbSfw" source="InstanceEnd" references="_9fXmkMrZEeyo0KHhgKsGiQ _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_lnTGMc9jEey6GYEgkWbSfw" definingFeature="_n0b05cq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_lnTGMs9jEey6GYEgkWbSfw" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_muewsM9jEey6GYEgkWbSfw" name="InstanceSpecification72" classifier="_n0bN0Mq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nQYj4M9jEey6GYEgkWbSfw" source="InstanceEnd" references="__CUAAMrZEeyo0KHhgKsGiQ _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_nQZK8s9jEey6GYEgkWbSfw" definingFeature="_n0b05cq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_nQZK889jEey6GYEgkWbSfw" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_p9QZ0M9jEey6GYEgkWbSfw" name="InstanceSpecification73" classifier="_n0bN0Mq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qnzysM9jEey6GYEgkWbSfw" source="InstanceEnd" references="_AgenIMraEeyo0KHhgKsGiQ _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_qn0Zwc9jEey6GYEgkWbSfw" definingFeature="_n0b05cq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_qn0Zws9jEey6GYEgkWbSfw" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_rqWNwM9jEey6GYEgkWbSfw" name="InstanceSpecification74" classifier="_n0bN0Mq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sH66kM9jEey6GYEgkWbSfw" source="InstanceEnd" references="_CHdzEMraEeyo0KHhgKsGiQ _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_sH66k89jEey6GYEgkWbSfw" definingFeature="_n0b05cq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_sH66lM9jEey6GYEgkWbSfw" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_tTpG0M9jEey6GYEgkWbSfw" name="InstanceSpecification75" classifier="_n0bN0Mq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tyF9YM9jEey6GYEgkWbSfw" source="InstanceEnd" references="_DajyoMraEeyo0KHhgKsGiQ _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_tyGkcc9jEey6GYEgkWbSfw" definingFeature="_n0b05cq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_tyGkcs9jEey6GYEgkWbSfw" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_N8QeIM9sEey6GYEgkWbSfw" name="InstanceSpecification73" classifier="_N9riMMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O6dLwM9sEey6GYEgkWbSfw" source="InstanceEnd" references="_ajxw8MraEeyo0KHhgKsGiQ _FoXuAMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_O6dLw89sEey6GYEgkWbSfw" definingFeature="_N9tXYsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_O6dLxM9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_FoXuAMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_PxEDoM9sEey6GYEgkWbSfw" name="InstanceSpecification74" classifier="_N9riMMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QjdJ4M9sEey6GYEgkWbSfw" source="InstanceEnd" references="_fcxgMMraEeyo0KHhgKsGiQ _FoXuAMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_QjdJ489sEey6GYEgkWbSfw" definingFeature="_N9tXYsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_QjdJ5M9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_FoXuAMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_RQTBwM9sEey6GYEgkWbSfw" name="InstanceSpecification75" classifier="_N9riMMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Rvcb4M9sEey6GYEgkWbSfw" source="InstanceEnd" references="_KyzrMMrdEeyo0KHhgKsGiQ _FoXuAMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_Rvcb489sEey6GYEgkWbSfw" definingFeature="_N9tXYsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_Rvcb5M9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_FoXuAMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_SlCAEM9sEey6GYEgkWbSfw" name="InstanceSpecification76" classifier="_N9riMMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TD0N0M9sEey6GYEgkWbSfw" source="InstanceEnd" references="_NhVG8MrdEeyo0KHhgKsGiQ _FoXuAMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_TD0N089sEey6GYEgkWbSfw" definingFeature="_N9tXYsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_TD0N1M9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_FoXuAMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_TywXcM9sEey6GYEgkWbSfw" name="InstanceSpecification77" classifier="_N9riMMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UQvT8M9sEey6GYEgkWbSfw" source="InstanceEnd" references="_PgHH0MrdEeyo0KHhgKsGiQ _FoXuAMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_UQv7Ac9sEey6GYEgkWbSfw" definingFeature="_N9tXYsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_UQwiEM9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_FoXuAMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_fYnAQM9sEey6GYEgkWbSfw" name="InstanceSpecification78" classifier="_N9riMMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gDE5kM9sEey6GYEgkWbSfw" source="InstanceEnd" references="_ajxw8MraEeyo0KHhgKsGiQ _GvIhwMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_gDE5k89sEey6GYEgkWbSfw" definingFeature="_N9tXYsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_gDE5lM9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_GvIhwMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_g2ukEM9sEey6GYEgkWbSfw" name="InstanceSpecification79" classifier="_N9riMMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hSpEAM9sEey6GYEgkWbSfw" source="InstanceEnd" references="_fcxgMMraEeyo0KHhgKsGiQ _GvIhwMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_hSprEM9sEey6GYEgkWbSfw" definingFeature="_N9tXYsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_hSprEc9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_GvIhwMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_iG810M9sEey6GYEgkWbSfw" name="InstanceSpecification80" classifier="_N9riMMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iiMAUM9sEey6GYEgkWbSfw" source="InstanceEnd" references="_KyzrMMrdEeyo0KHhgKsGiQ _GvIhwMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_iiMnYs9sEey6GYEgkWbSfw" definingFeature="_N9tXYsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_iiMnY89sEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_GvIhwMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_jWJM0M9sEey6GYEgkWbSfw" name="InstanceSpecification81" classifier="_N9riMMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kDwgwM9sEey6GYEgkWbSfw" source="InstanceEnd" references="_NhVG8MrdEeyo0KHhgKsGiQ _GvIhwMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_kDxH0M9sEey6GYEgkWbSfw" definingFeature="_N9tXYsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_kDxH0c9sEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_GvIhwMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_k730gM9sEey6GYEgkWbSfw" name="InstanceSpecification82" classifier="_N9riMMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lapbMM9sEey6GYEgkWbSfw" source="InstanceEnd" references="_PgHH0MrdEeyo0KHhgKsGiQ _GvIhwMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_laqCQs9sEey6GYEgkWbSfw" definingFeature="_N9tXYsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_laqCQ89sEey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_GvIhwMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_KeFNcM90Eey6GYEgkWbSfw" client="_Gb28EMq8Eeyo0KHhgKsGiQ" supplier="_HMsHoMqyEeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_LHf94M90Eey6GYEgkWbSfw" client="_Gb28EMq8Eeyo0KHhgKsGiQ" supplier="_LAABMMqyEeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_LzrucM90Eey6GYEgkWbSfw" client="_Gb28EMq8Eeyo0KHhgKsGiQ" supplier="_QqIScMqyEeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_MW2s8M90Eey6GYEgkWbSfw" client="_Gb28EMq8Eeyo0KHhgKsGiQ" supplier="_TG6d8MqyEeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_NkVMsM90Eey6GYEgkWbSfw" client="_Gb28EMq8Eeyo0KHhgKsGiQ" supplier="_X57hAMqyEeyo0KHhgKsGiQ"/>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NA1BkM91Eey6GYEgkWbSfw" name="controls" classifier="_me610MrxEeyo0KHhgKsGiQ">
+    <slot xmi:type="uml:Slot" xmi:id="_Q__l0c91Eey6GYEgkWbSfw" definingFeature="_dXuLUsryEeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_Q__l0s91Eey6GYEgkWbSfw" name="InstanceValue0" type="_Cv5nsMq8Eeyo0KHhgKsGiQ" instance="_7dgcgMrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_QnEIcM91Eey6GYEgkWbSfw" name="InstanceSpecification90" classifier="_dXtkQMryEeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Q__l0M91Eey6GYEgkWbSfw" source="InstanceEnd" references="_7dgcgMrZEeyo0KHhgKsGiQ _NA1BkM91Eey6GYEgkWbSfw"/>
+    <slot xmi:type="uml:Slot" xmi:id="_Q__l0891Eey6GYEgkWbSfw" definingFeature="_dXuyYsryEeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_Q__l1M91Eey6GYEgkWbSfw" name="InstanceValue0" type="_me610MrxEeyo0KHhgKsGiQ" instance="_NA1BkM91Eey6GYEgkWbSfw"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_RovA0M91Eey6GYEgkWbSfw" name="InstanceSpecification91" classifier="_ckbGIMryEeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SEizEM91Eey6GYEgkWbSfw" source="InstanceEnd" references="_NA1BkM91Eey6GYEgkWbSfw _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_SEjaIM91Eey6GYEgkWbSfw" definingFeature="_ckdiYsryEeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_SEjaIc91Eey6GYEgkWbSfw" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_wq2OAM91Eey6GYEgkWbSfw" name="InstanceSpecification92" classifier="_VB7oEMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xhNOQM91Eey6GYEgkWbSfw" source="InstanceEnd" references="_AgenIMraEeyo0KHhgKsGiQ _FoXuAMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_xhN1Uc91Eey6GYEgkWbSfw" definingFeature="_VB82MsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_xhN1Us91Eey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_FoXuAMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_30g_YM91Eey6GYEgkWbSfw" name="InstanceSpecification93" classifier="_VB7oEMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4adlEM91Eey6GYEgkWbSfw" source="InstanceEnd" references="_CHdzEMraEeyo0KHhgKsGiQ _FoXuAMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_4aeMIs91Eey6GYEgkWbSfw" definingFeature="_VB82MsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_4aeMI891Eey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_FoXuAMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_5N0UoM91Eey6GYEgkWbSfw" name="InstanceSpecification94" classifier="_VB7oEMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_55lOcM91Eey6GYEgkWbSfw" source="InstanceEnd" references="_AgenIMraEeyo0KHhgKsGiQ _GvIhwMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_55l1gc91Eey6GYEgkWbSfw" definingFeature="_VB82MsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_55l1gs91Eey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_GvIhwMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_7BkxQM91Eey6GYEgkWbSfw" name="InstanceSpecification95" classifier="_VB7oEMrREeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7ue6kM91Eey6GYEgkWbSfw" source="InstanceEnd" references="_CHdzEMraEeyo0KHhgKsGiQ _GvIhwMraEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_7ue6k891Eey6GYEgkWbSfw" definingFeature="_VB82MsrREeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_7ufhoM91Eey6GYEgkWbSfw" name="InstanceValue0" type="_Kb1YoMq8Eeyo0KHhgKsGiQ" instance="_GvIhwMraEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_4ZCvIM99Eey6GYEgkWbSfw" client="_B990cMq8Eeyo0KHhgKsGiQ" supplier="_1Kr8wM99Eey6GYEgkWbSfw"/>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_v9IrEM-DEey6GYEgkWbSfw" name="InstanceSpecification97" classifier="_0L7WAMq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wfkCsM-DEey6GYEgkWbSfw" source="InstanceEnd" references="_FoXuAMraEeyo0KHhgKsGiQ _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_wfkCs8-DEey6GYEgkWbSfw" definingFeature="_0L79Fcq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_wfkCtM-DEey6GYEgkWbSfw" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_xYl8cM-DEey6GYEgkWbSfw" name="InstanceSpecification98" classifier="_0L7WAMq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xyPLgM-DEey6GYEgkWbSfw" source="InstanceEnd" references="_GvIhwMraEeyo0KHhgKsGiQ _1JNz8MrZEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_xyPLg8-DEey6GYEgkWbSfw" definingFeature="_0L79Fcq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_xyPLhM-DEey6GYEgkWbSfw" name="InstanceValue0" type="_B990cMq8Eeyo0KHhgKsGiQ" instance="_1JNz8MrZEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_NmMIsM-GEey6GYEgkWbSfw" client="_E_TegMq8Eeyo0KHhgKsGiQ" supplier="_JzkysM-GEey6GYEgkWbSfw"/>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_oAcnsM-LEey6GYEgkWbSfw" name="InstanceSpecification98" classifier="_qtJucMq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oi2KIM-LEey6GYEgkWbSfw" source="InstanceEnd" references="_Wwu9IMraEeyo0KHhgKsGiQ _h67EAMriEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_oi2xMc-LEey6GYEgkWbSfw" definingFeature="_qtK8kMq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_oi2xMs-LEey6GYEgkWbSfw" name="InstanceValue0" type="_E_TegMq8Eeyo0KHhgKsGiQ" instance="_h67EAMriEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_pcuYcM-LEey6GYEgkWbSfw" name="InstanceSpecification99" classifier="_qtJucMq9Eeyo0KHhgKsGiQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_p2-rgM-LEey6GYEgkWbSfw" source="InstanceEnd" references="_Y12PgMraEeyo0KHhgKsGiQ _h67EAMriEeyo0KHhgKsGiQ"/>
+    <slot xmi:type="uml:Slot" xmi:id="_p2_Skc-LEey6GYEgkWbSfw" definingFeature="_qtK8kMq9Eeyo0KHhgKsGiQ">
+      <value xmi:type="uml:InstanceValue" xmi:id="_p2_Sks-LEey6GYEgkWbSfw" name="InstanceValue0" type="_E_TegMq8Eeyo0KHhgKsGiQ" instance="_h67EAMriEeyo0KHhgKsGiQ"/>
+    </slot>
+  </packagedElement>
+</uml:Model>

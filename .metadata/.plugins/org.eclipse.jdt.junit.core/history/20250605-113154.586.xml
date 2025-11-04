@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestMain" project="CodegenAufgabe4" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="codegenerator.test.exercise4.TestMain" time="1.079">
+    <testcase name="testMainGeneration" classname="codegenerator.test.exercise4.TestMain" time="1.079"/>
+  </testsuite>
+</testrun>

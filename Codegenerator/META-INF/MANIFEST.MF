@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Codegenerator
+Bundle-SymbolicName: Codegenerator
+Bundle-Version: 1.0.0.qualifier
+Export-Package: codegenerator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.uml2.uml;bundle-version="5.1.2",
+ org.eclipse.xtend.lib;bundle-version="2.9.1"
+Automatic-Module-Name: CodegeneratorLoesung

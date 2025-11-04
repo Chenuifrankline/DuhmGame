@@ -1,0 +1,147 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import java.nio.file.Path
+import java.nio.file.Paths
+import java.util.HashSet
+import java.util.LinkedList
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.NamedElement
+import org.eclipse.uml2.uml.Type
+import org.eclipse.uml2.uml.PrimitiveType
+import org.eclipse.uml2.uml.Enumeration
+import org.eclipse.uml2.uml.Dependency
+
+class ClassTemplate implements Template<Class> {
+
+	override String generateCode(CodegenInterface it, Class umlClass, String context) {
+		// TODO: Aufgabe 3
+		switch (context) {
+			case "declaration": genH(it, umlClass)
+			case "implementation": genC(it, umlClass)
+			default: '''unbekannter Kontext «context»'''
+		}
+
+	}
+
+	def String genC(CodegenInterface it, Class umlClass) {
+		val className = umlClass?.name
+
+	val operations = umlClass.ownedOperations.map [ op |
+		generate(op, "implementation")
+	]
+
+	return '''
+		#include "«className».h"
+		
+		«operations.join("\n\n")»
+	'''
+	}
+
+
+
+	def String genH(CodegenInterface it, Class umlClass) {
+	val packageName = if (umlClass.package !== null) generate(umlClass.package, "name") + "_" else ""
+	//val modelName = if(umlClass.model !== null) generate(umlClass.model, "name")+"_" else ""
+	System.out.println(generate(umlClass.model, "name"))
+		val className = (packageName + umlClass.name).toUpperCase
+	val structCode = generate(umlClass, "typedefinition")
+	val includes = generateIncludes(it, umlClass).trim
+
+	val operations = umlClass.ownedOperations.map [ op |
+		generate(op, "declaration")
+	]
+
+	return '''
+#ifndef «className»_H
+#define «className»_H
+«IF !includes.empty»
+
+«includes»
+«ENDIF»
+
+«structCode»«IF !operations.empty»
+
+«operations.join("\n\n")»
+«ENDIF»
+
+#endif
+'''
+	}
+
+	def String generateIncludes(CodegenInterface it, Class umlClass) {
+		val types = new HashSet<Type>()
+
+        for (property : umlClass.ownedAttributes) {
+            if (property.type !== null && !(property.type instanceof PrimitiveType) && property.type !== umlClass) {
+                if (property.type instanceof Class || property.type instanceof Enumeration) {
+                     types.add(property.type)
+                }
+            }
+        }
+
+        for (operation : umlClass.ownedOperations) {
+            if (operation.type !== null && !(operation.type instanceof PrimitiveType) && operation.type !== umlClass) {
+                 if (operation.type instanceof Class || operation.type instanceof Enumeration) { 
+                    types.add(operation.type)
+                }
+            }
+            for (parameter : operation.ownedParameters) {
+                if (parameter.type !== null && !(parameter.type instanceof PrimitiveType) && parameter.type !== umlClass) {
+                    if (parameter.type instanceof Class || parameter.type instanceof Enumeration) {
+                        types.add(parameter.type)
+                    }
+                }
+            }
+        }
+        
+        for (rel : umlClass.relationships.filter(Dependency)) {
+    val dep = rel as Dependency
+    for (supplier : dep.suppliers) {
+        if (supplier instanceof Class || supplier instanceof Enumeration) {
+            types.add(supplier as Type)
+        }
+    }
+}
+		
+		        val sortedIncludePaths = types.map[type |generatePath(it, umlClass, type)  ]
+		        .filter[p | p !== null && !p.startsWith("ERROR_PATH_NOT_FOUND")].sort 
+
+        '''
+            «FOR pathString : sortedIncludePaths AFTER '\n'»
+                #include "«pathString»"
+            «ENDFOR»
+        '''
+
+	
+	}
+
+	def generatePath(CodegenInterface it, NamedElement from, NamedElement to) {
+		val fromPath = getPath(from, "declaration")
+		val toPath = getPath(to, "declaration")
+
+		val relPath = fromPath.parent?.relativize(toPath) ?: toPath
+		return relPath.join("/")
+	}
+
+	override Path getPath(Class umlClass, String context) {
+		var path = new LinkedList<String>()
+		switch context {
+			case "declaration": {
+				path.addFirst(umlClass.name + ".h")
+			}
+			case "implementation": {
+				path.addFirst(umlClass.name + ".c")
+			}
+			default:
+				return null
+		}
+		var parent = umlClass.namespace
+		while (null !== parent) {
+			path.addFirst(parent.name)
+			parent = parent.namespace
+		}
+		return Paths.get(path.head, path.tail)
+	}
+}

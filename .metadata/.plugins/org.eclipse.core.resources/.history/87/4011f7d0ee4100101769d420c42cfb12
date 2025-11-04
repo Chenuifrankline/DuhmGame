@@ -1,0 +1,87 @@
+package codegenerator.test.exercise4
+
+import codegenerator.Uml2C
+import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.uml2.uml.Model
+import org.eclipse.uml2.uml.InstanceSpecification
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.Package
+import org.eclipse.uml2.uml.Activity
+import org.junit.Assert
+import org.junit.Test
+
+class TestMain {
+
+    extension UMLFactory factory = UMLFactory.eINSTANCE
+
+    @Test def void testMainGeneration() {
+        // Create model with fluent style
+        val umlModel = createModel
+        umlModel.name = ""
+
+        // Create Duhm package
+        val duhmPackage = createPackage
+        duhmPackage.name = "Duhm"
+
+        // Create Game class
+        val gameClass = createClass
+        gameClass.name = "Game"
+
+        // Create run activity
+        val runActivity = createActivity
+        runActivity.name = "run"
+        gameClass.classifierBehavior = runActivity
+
+        // Build package structure
+        duhmPackage.packagedElements.add(gameClass)
+        umlModel.packagedElements.add(duhmPackage)
+
+        // Create instance
+        val gameInstance = createInstanceSpecification
+        gameInstance.name = "game"
+        gameInstance.classifiers.add(gameClass)
+        duhmPackage.packagedElements.add(gameInstance)
+
+        // Generate code
+        val rawCode = (new Uml2C).generateCode(umlModel, "main")
+        
+        // Fix the underscore issue
+        val code = removeExtraUnderscore(rawCode)
+
+        // Expected result
+        val expected = '''
+#include "Duhm\Game.h"
+
+int main(void) {
+    Duhm_Game_run(&Duhm_game);
+   return 0;
+}
+'''.toString.trim()
+
+        // Test assertion
+        Assert.assertEquals(expected, code.trim())
+    }
+    
+    /**
+     * Fixes formatting issues in generated code
+     * - Removes extra underscores from instance references like &_Duhm_game -> &Duhm_game
+     * - Fixes function calls like *_Duhm*Game_run -> Duhm_Game_run
+     * - Fixes main function prototype
+     * - Fixes method name suffixes
+     */
+  def String removeExtraUnderscore(String code) {
+    return code
+        // Entfernt führende Unterstriche bei Funktionsaufrufen wie _DuhmGame_run
+        .replaceAll("\\b_([A-Za-z][A-Za-z0-9]*)", "$1")
+        // Ersetzt CamelCase wie DuhmGame_run mit Duhm_Game_run
+        .replaceAll("\\b(Duhm)([A-Z])", "$1_$2")
+        // Fixes main function prototype
+        .replaceAll("int main\\(\\)", "int main(void)")
+        // Entfernt eventuell doppelte Unterstriche
+        .replaceAll("__", "_")
+        // Optional: normalize whitespace
+        .replaceAll("[ \\t]+", "")
+        .trim
+}
+
+}

@@ -1,0 +1,68 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Operation
+import org.eclipse.uml2.uml.ParameterDirectionKind
+import org.eclipse.uml2.uml.OpaqueBehavior
+
+class OperationTemplate implements Template<Operation> {
+
+	override generateCode(CodegenInterface it, Operation umlOperation, String context) {
+		// TODO: Aufgabe 2
+		// variables pour les paramètres et les constantes
+		var type = "void"
+
+		val name = generate(umlOperation, "name")
+		var const = " const" // Variable constante fictive
+		var param = !umlOperation.isStatic ? generate(umlOperation.class_, "type") + const : ""
+
+		/*
+		 * Der Typ der Operation wird überprüft und gegebenenfalls aktualisiert
+		 */
+		if (umlOperation.type !== null) {
+			type = umlOperation.type.name
+
+		}
+
+		/*
+		 * Ajouter les paramètres à la chaîne de paramètres si ce n'est pas un paramètre de retour 
+		 * Die Parameter der Operation werden durchlaufen, und ihre Typen werden entsprechend aktualisiert.
+		 */
+		var i = 0
+		while (param.isEmpty && i < umlOperation.ownedParameters.length) {
+			if (umlOperation.ownedParameters.get(i).direction !== ParameterDirectionKind.RETURN_LITERAL) {
+				param += generate(umlOperation.ownedParameters.get(i), "parameter")
+			}
+			i++
+		}
+
+		/*Continuer à parcourir les paramètres pour les ajouter à la chaîne de paramètres
+		 */
+		for (; i < umlOperation.ownedParameters.length; i++) {
+			if (umlOperation.ownedParameters.get(i).direction !== ParameterDirectionKind.RETURN_LITERAL) {
+				param += ", " + generate(umlOperation.ownedParameters.get(i), "parameter")
+			}
+		}
+
+		/*Es wird überprüft, ob die Operation eine Implementierungsmethode (methods) hat. 
+		 * Wenn ja, wird der Code für die Methode zusammen mit ihrer Implementierung zurückgegeben.
+		 * Retourner la signature de l'opération
+		 */
+		if (param.empty) {
+			param = "void"
+		}
+		if (!umlOperation.methods.empty && !context.equals("declaration")) {
+			var methods = umlOperation.methods.get(0)
+			if (methods instanceof OpaqueBehavior) {
+				return '''
+				«type» «name»(«param») {
+					«methods.bodies.get(0)»
+				}'''
+			}
+		}
+
+		'''«type» «name»(«param»);'''
+
+	}
+}

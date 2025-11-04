@@ -1,0 +1,38 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.AggregationKind
+import org.eclipse.uml2.uml.Property
+import javax.lang.model.type.PrimitiveType
+import org.eclipse.uml2.uml.Artifact
+
+class PropertyTemplate implements Template<Property> {
+	
+	override generateCode(CodegenInterface it, Property umlProperty, String context) {
+		
+         // initialisierung name und zeiger fals es vorandern 
+		var name = umlProperty.name;
+		var pointer = ""
+		var upper = "";
+
+        if (umlProperty.upper > 1) {
+			upper = "[" + umlProperty.upper.toString + "]";
+		} else if (umlProperty.upper === -1) {
+			pointer = "*"
+		}
+		 
+
+    var type = generate(umlProperty.type, "type");
+    
+    if (!(umlProperty.type instanceof PrimitiveType || umlProperty.type instanceof Artifact) &&
+			umlProperty.aggregation == AggregationKind.COMPOSITE_LITERAL) {
+
+        '''«generate(umlProperty.type, "name")» «name»«upper»;'''
+    } else {
+        // Ansonsten wird der generierte Typ und der Name des Properties mit dem Zeiger zurückgegeben
+        '''«type»«pointer» «name»«upper»;'''
+
+		}
+	}
+}

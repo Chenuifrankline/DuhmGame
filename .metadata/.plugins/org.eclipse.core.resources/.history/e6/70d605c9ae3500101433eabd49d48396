@@ -1,0 +1,179 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import java.nio.file.Path
+import java.nio.file.Paths
+import java.util.HashSet
+import java.util.LinkedList
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.NamedElement
+import org.eclipse.uml2.uml.Type
+import org.eclipse.uml2.uml.Enumeration
+
+class ClassTemplate implements Template<Class> {
+
+	override String generateCode(CodegenInterface it, Class umlClass, String context) {
+		// TODO: Aufgabe 3
+		/**
+		 * Generierung der Header-Datei
+		 * ich überprüft zuerst den Kontext und entscheidet dann, ob sie eine Deklaration 
+		 * oder Implementierung generieren soll.
+		 */
+		 String decapitalize(String s) {
+			if (s == null || s.length() == 0) return s
+			return s.substring(0, 1).toLowerCase() + s.substring(1)
+		}
+		 }
+		switch context {
+			// Generierung der Header-Datei für die Klasse
+			case "declaration": {
+
+				// val nameTemplate = new NameTemplate()
+				val generatedName = generate(umlClass, "name")
+
+				var ifndef = generatedName.toUpperCase() + "_H"
+				var define = generatedName.toUpperCase() + "_H"
+				// Generierung der Methoden und Attribute für die Header-Datei
+				var body = generate(umlClass, "typedefinition") + "\n"
+
+				// Hier die extern-Deklaration ergänzen
+				
+    var externInstance = "extern " + generatedName + " " + 
+                        (generatedName.length() > 0 
+                         ? generatedName.substring(0,1).toLowerCase() + generatedName.substring(1) 
+                         : generatedName) + 
+                        "_testInstance;\n"
+
+    body += externInstance
+				// Generierung der Includes für die Header-Datei
+				var include = generateIncludes(umlClass)
+				var voidString = ""
+				// Hier wird die extern-Variable generiert
+				// var externInstance = "extern " + generatedName + " " + generatedName.toLowerCase() + "_testInstance;\n"
+				// Generierung von Funktionsprototypen für Methoden, falls vorhanden
+				if (umlClass.ownedOperations !== null) {
+					for (operation : umlClass.ownedOperations) {
+						body += generate(operation, context) + "\n\n"
+					}
+				}
+
+				if (umlClass.ownedAttributes !== null) {
+					include = generateIncludes(umlClass);
+				}
+
+				return '''
+					#ifndef «ifndef»
+					#define «define»
+					
+					«include»
+					«body»
+					«voidString»
+					#endif
+				'''
+
+			}
+			// Generierung der Implementierungsdatei für die Klasse
+			case "implementation": {
+
+				var body = ""
+				var voidString = ""
+
+				for (var i = 0; i < umlClass.ownedOperations.length; i++) {
+					// var operation = 
+					if (i == umlClass.ownedOperations.length - 1) {
+						body += generate(umlClass.ownedOperations.get(i), context) + "\n"
+					} else {
+						body += generate(umlClass.ownedOperations.get(i), context) + "\n\n"
+					}
+				}
+
+				'''
+					#include "«umlClass.name».h"
+					
+					«body»
+					«voidString»
+				'''
+
+			}
+			default:
+				throw new UnsupportedOperationException("Unsupported context: " + context)
+		}
+	}
+	
+
+	/**
+	 * Die Methode sammelt alle erforderlichen Include-Anweisungen für die
+	 *  Header-Datei, basierend auf den Typen der Attribute,
+	 *  Parameter und Abhängigkeiten der Klasse
+	 */
+// Generierung von Includes für die Header-Datei
+	def String generateIncludes(CodegenInterface it, Class umlClass) {
+		val types = new HashSet<String>()
+
+// Durchsuchen der Attribute nach Klassen- oder Enumerationstypen
+		for (property : umlClass.ownedAttributes) {
+			if (property.type instanceof Class || property.type instanceof Enumeration) {
+				types.add(generatePath(umlClass, property.type))
+			}
+		}
+
+// Durchsuchen der Operationen nach Klassen- oder Enumerationstypen
+		for (operation : umlClass.ownedOperations) {
+			for (parameter : operation.ownedParameters) {
+				if (parameter.type instanceof Class || parameter.type instanceof Enumeration) {
+					types.add(generatePath(umlClass, parameter.type))
+				}
+			}
+		}
+
+		// Durchsuchen der Klassenabhängigkeiten nach Klassen- oder Enumerationstypen
+		for (clients : umlClass.clientDependencies) {
+			for (supplier : clients.suppliers.filter(Type)) {
+				if (supplier instanceof Class || supplier instanceof Enumeration) {
+					types.add(generatePath(umlClass, supplier))
+				}
+			}
+		}
+
+		'''
+			«FOR type : types.sort() AFTER '\n'»
+				#include "«type»"
+			«ENDFOR»
+		'''
+	}
+
+	// Generierung des Pfads für die Header-Datei
+	def generatePath(CodegenInterface it, NamedElement from, NamedElement to) {
+		// appel de la méthode getPath qui dne chemin pour l'élément source from
+		// pareil pr chemin de l'élément cible to 
+		// Ceci détermine le chemin relatif entre le chemin source et le chemin cible.
+		val fromPath = getPath(from, "declaration")
+		val toPath = getPath(to, "declaration")
+
+		val relPath = fromPath.parent?.relativize(toPath) ?: toPath
+		return relPath.join("/") // Pfad als Zeichenfolge zurückgegeben
+	}
+
+// Generierung des Dateipfads für die Header- oder Implementierungsdatei
+	override Path getPath(Class umlClass, String context) {
+		var path = new LinkedList<String>()
+		switch context {
+			case "declaration": { // //  wird der Dateiname für die Header-Datei (*.h) zur Liste path hinzugefügt.
+				path.addFirst(umlClass.name + ".h")
+			}
+			case "implementation": { // wird der Dateiname für die Implementierungsdatei (*.c) zur Liste path hinzugefügt.
+				path.addFirst(umlClass.name + ".c")
+			}
+			default:
+				return null
+		}
+		var parent = umlClass.namespace // Hier wird die übergeordnete Namensraumklasse der umlClass abgerufen.
+		while (null !== parent) {
+			path.addFirst(parent.name)
+			parent = parent.namespace
+		}
+		// der Dateipfad als Path-Objekt zurückgegeben
+		return Paths.get(path.head, path.tail)
+	}
+}

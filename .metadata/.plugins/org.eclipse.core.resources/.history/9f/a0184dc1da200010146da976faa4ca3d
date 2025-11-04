@@ -1,0 +1,26 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Parameter
+
+class ParameterTemplate implements Template<Parameter> {
+
+	override generateCode(CodegenInterface it, Parameter umlParameter, String context) {
+		// Hole den Namen des Parameters
+		val name = umlParameter.name
+		val type = if(umlParameter.type !== null) generate(umlParameter.type, "type") else "void*"
+
+		// Namen und den Typ des Parameters sowie seine Richtung (IN, OUT, INOUT, RETURN)
+		switch (umlParameter.direction) {
+			// Wenn der Parameter INOUT ist, wird ein Zeiger auf den Typ zurückgegeben
+			case INOUT_LITERAL: type + "*" + " " + name
+			// Wenn der Parameter OUT ist, wird auch ein Zeiger auf den Typ zurückgegeben
+			case OUT_LITERAL: type + "*" + " " + name
+			// Wenn der Parameter ein Rückgabewert ist, wird nur der Typ zurückgegeben
+			case RETURN_LITERAL: type
+			// Für alle anderen Fälle wird der Typ und der Name des Parameters zurückgegeben
+			default: type + " " + name
+		}
+	}
+}

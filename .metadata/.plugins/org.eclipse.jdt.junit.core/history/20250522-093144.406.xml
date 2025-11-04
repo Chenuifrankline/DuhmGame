@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestArtifact" project="CodegenAufgabe4" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="codegenerator.test.exercise4.TestArtifact" time="1.238">
+    <testcase name="test00_ArtifactAsType" classname="codegenerator.test.exercise4.TestArtifact" time="1.162"/>
+    <testcase name="test03_ArtifactInclude3" classname="codegenerator.test.exercise4.TestArtifact" time="0.066"/>
+    <testcase name="test04_ArtifactWithNoFile" classname="codegenerator.test.exercise4.TestArtifact" time="0.003"/>
+    <testcase name="test02_ArtifactInclude" classname="codegenerator.test.exercise4.TestArtifact" time="0.005"/>
+    <testcase name="test01_ArtifactAsType2" classname="codegenerator.test.exercise4.TestArtifact" time="0.002"/>
+  </testsuite>
+</testrun>

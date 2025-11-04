@@ -1,0 +1,30 @@
+package codegenerator.templates
+
+import codegenerator.Template
+import codegenerator.CodegenInterface
+import org.eclipse.uml2.uml.Artifact
+
+class ArtifactTemplate implements Template<Artifact> {
+	
+	override generateCode(CodegenInterface it, Artifact umlArtifact, String context) {
+		switch (context) {
+			case "include": {
+
+				val file = umlArtifact.fileName
+				if (file === null || file.trim.empty)
+					return null
+				else if (file.startsWith("<") && file.endsWith(">"))
+					return "#include " + file
+				else
+					return "#include \"" + file + "\""
+
+			}
+			case "type": {
+				return generate(umlArtifact, "name")
+			}
+			default:
+				throw new UnsupportedOperationException("Unsupported context: " + context)
+		}
+	}
+
+}

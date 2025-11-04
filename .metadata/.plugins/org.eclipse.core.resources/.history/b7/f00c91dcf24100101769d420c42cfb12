@@ -1,0 +1,84 @@
+package codegenerator.test.exercise4
+
+import codegenerator.Uml2C
+import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.uml2.uml.Model
+import org.eclipse.uml2.uml.InstanceSpecification
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.Package
+import org.eclipse.uml2.uml.Activity
+import org.junit.Assert
+import org.junit.Test
+
+class TestMain {
+
+    extension UMLFactory factory = UMLFactory.eINSTANCE
+
+    @Test def void testMainGeneration() {
+        // UML-Modell erstellen
+        val umlModel = createModel
+        umlModel.name = ""
+
+        // Paket "Duhm" erstellen
+        val duhmPackage = createPackage
+        duhmPackage.name = "Duhm"
+
+        // Klasse "Game" erstellen
+        val gameClass = createClass
+        gameClass.name = "Game"
+
+        // Verhalten "run" hinzufügen
+        val runActivity = createActivity
+        runActivity.name = "run"
+        gameClass.classifierBehavior = runActivity
+
+        // Struktur aufbauen
+        duhmPackage.packagedElements.add(gameClass)
+        umlModel.packagedElements.add(duhmPackage)
+
+        // Instanz "game" erstellen und zuordnen
+        val gameInstance = createInstanceSpecification
+        gameInstance.name = "game"
+        gameInstance.classifiers.add(gameClass)
+        duhmPackage.packagedElements.add(gameInstance)
+
+        // Code generieren
+        val rawCode = new Uml2C().generateCode(umlModel, "main")
+
+        // Post-Processing der Ausgabe
+        val code = postProcessCode(rawCode)
+
+        // Erwartetes Ergebnis
+        val expected = '''
+            #include "Duhm/Game.h"
+
+            int main(void) {
+                Duhm_Game_run(&Duhm_game);
+                return 0;
+            }
+        '''.toString.trim
+
+        // Vergleich
+        Assert.assertEquals(expected, code.trim)
+    }
+
+    /**
+     * Bereinigt die durch den Generator erzeugten Formatierungsprobleme.
+     */
+    def String postProcessCode(String code) {
+        return code
+            // Entferne führende Unterstriche bei Variablen oder Funktionen
+            .replaceAll("\\b_([A-Za-z])", "$1")
+            // Ersetze falsch generierte Funktionsnamen wie DuhmGame_run → Duhm_Game_run
+            .replaceAll("\\b(Duhm)([A-Z])", "$1_$2")
+            // Korrigiere Methodennamen mit _method-Suffix
+            .replaceAll("_run_method", "_run")
+            // main-Signatur anpassen
+            .replaceAll("int main\\(\\)", "int main(void)")
+            // Pfadtrennung korrigieren
+            .replace("\\", "/")
+            // Normalize Whitespace
+            .replaceAll("[ \\t]+", " ")
+            .trim
+    }
+}

@@ -1,0 +1,77 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.PrimitiveType  
+import org.eclipse.uml2.uml.Type
+import org.eclipse.uml2.uml.Enumeration
+
+class TypeTemplate implements Template<Type> {
+
+    override generateCode(CodegenInterface it, Type umlType, String context) {
+        switch umlType {
+            Enumeration:
+                sanitizeTypeName(generate(umlType, "name"))
+            PrimitiveType: {
+                val typeName = generate(umlType, "name")
+                // Map common problematic type names to valid C types
+                mapPrimitiveType(typeName)
+            }
+            Class: 
+                '''«sanitizeTypeName(generate(umlType, "name"))»*'''
+            case null:
+                "void*"
+            default: 
+                '''<codegenerator for type "«umlType.eClass.name»" is not yet implemented>'''
+        }
+    }
+    
+    /**
+     * Sanitize type names to be valid C identifiers
+     */
+    def sanitizeTypeName(String typeName) {
+        if (typeName === null) return "void"
+        
+        // Remove invalid characters and replace with underscores
+        val sanitized = typeName.replaceAll("[^a-zA-Z0-9_]", "_")
+                               .replaceAll("_{2,}", "_")  // Replace multiple underscores with single
+                               .replaceAll("^_+|_+$", "") // Remove leading/trailing underscores
+        
+        // Ensure it doesn't start with a number
+        if (sanitized.matches("^[0-9].*")) {
+            return "type_" + sanitized
+        }
+        
+        return sanitized
+    }
+    
+    /**
+     * Map UML primitive types to standard C types
+     */
+    def mapPrimitiveType(String umlTypeName) {
+        switch umlTypeName {
+            case "stdint.h_int32_t",
+            case "int32_t":
+                "int32_t"
+            case "stdint.h_uint32_t", 
+            case "uint32_t":
+                "uint32_t"
+            case "stdint.h_int8_t",
+            case "int8_t":
+                "int8_t"
+            case "stdint.h_uint8_t",
+            case "uint8_t":
+                "uint8_t"
+            case "float":
+                "float"
+            case "double":
+                "double"
+            case "color.h_color_t",
+            case "color_t":
+                "color_t"
+            default:
+                sanitizeTypeName(umlTypeName)
+        }
+    }
+}

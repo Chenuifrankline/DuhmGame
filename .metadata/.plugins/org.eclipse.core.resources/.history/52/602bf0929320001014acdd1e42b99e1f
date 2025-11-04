@@ -1,0 +1,32 @@
+package codegenerator;
+
+
+import codegenerator.templates.ParameterTemplate
+import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.uml2.uml.ParameterDirectionKind
+
+class Main {
+	
+	def static void main(String[] args) {
+		
+		// Create a dummy UML parameter using UMLFactory
+		val factory = UMLFactory.eINSTANCE
+		val param = factory.createParameter
+		param.name = "temperature"
+		param.direction = ParameterDirectionKind.INOUT_LITERAL
+		
+		// Simulate a type (e.g., "int")
+		val intType = factory.createPrimitiveType
+		intType.name = "int"
+		param.type = intType
+
+		// Instantiate your template
+		val template = new ParameterTemplate
+
+		// Simulate the CodegenInterface (can be null for simple testing)
+		val generatedCode = template.generateCode(null, param, "declaration")
+
+		println("Generated C code:")
+		println(generatedCode)
+	}
+}

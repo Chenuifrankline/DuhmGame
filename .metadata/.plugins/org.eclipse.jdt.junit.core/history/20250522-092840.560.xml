@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CodegenTestAll" project="CodegenAufgabe4" tests="153" started="153" failures="0" errors="0" ignored="0">
+  <testsuite name="codegenerator.test.exercise4.TestArtifact" time="1.151">
+    <testcase name="test00_ArtifactAsType" classname="codegenerator.test.exercise4.TestArtifact" time="1.077"/>
+    <testcase name="test03_ArtifactInclude3" classname="codegenerator.test.exercise4.TestArtifact" time="0.065"/>
+    <testcase name="test04_ArtifactWithNoFile" classname="codegenerator.test.exercise4.TestArtifact" time="0.002"/>
+    <testcase name="test02_ArtifactInclude" classname="codegenerator.test.exercise4.TestArtifact" time="0.006"/>
+    <testcase name="test01_ArtifactAsType2" classname="codegenerator.test.exercise4.TestArtifact" time="0.001"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.TestEnum" time="0.065">
+    <testcase name="testEmptyEnum" classname="codegenerator.test.TestEnum" time="0.008"/>
+    <testcase name="testEnumWithMoreLiterals" classname="codegenerator.test.TestEnum" time="0.024"/>
+    <testcase name="testEnumImplementationWithMoreLiteralsWithValues" classname="codegenerator.test.TestEnum" time="0.013"/>
+    <testcase name="testEnumWithMoreLiteralsWithValues" classname="codegenerator.test.TestEnum" time="0.007"/>
+    <testcase name="testEnumWithOneLiteralWithValue" classname="codegenerator.test.TestEnum" time="0.002"/>
+    <testcase name="testEnumWithOneLiteral" classname="codegenerator.test.TestEnum" time="0.003"/>
+    <testcase name="testEnumHeaderWithMoreLiteralsWithValues" classname="codegenerator.test.TestEnum" time="0.006"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise4.TestLiteralSpec2" time="0.018">
+    <testcase name="test00_EmptyInstanceValue" classname="codegenerator.test.exercise4.TestLiteralSpec2" time="0.002"/>
+    <testcase name="test01_InstanceValue" classname="codegenerator.test.exercise4.TestLiteralSpec2" time="0.015"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise4.TestClass2" time="0.106">
+    <testcase name="test04_ClassWithAttributeHeader" classname="codegenerator.test.exercise4.TestClass2" time="0.007"/>
+    <testcase name="test16_ClassWithObjectAttributeAndSlotImpl" classname="codegenerator.test.exercise4.TestClass2" time="0.012"/>
+    <testcase name="test17_ClassWithObjectAttributeAndSlotImpl2" classname="codegenerator.test.exercise4.TestClass2" time="0.011"/>
+    <testcase name="test01_EmptyClassHeader2" classname="codegenerator.test.exercise4.TestClass2" time="0.003"/>
+    <testcase name="test03_EmptyClassImpl2" classname="codegenerator.test.exercise4.TestClass2" time="0.005"/>
+    <testcase name="test05_ClassWithAttributeHeader2" classname="codegenerator.test.exercise4.TestClass2" time="0.004"/>
+    <testcase name="test08_ClassWithAttributeAndSlotHeader" classname="codegenerator.test.exercise4.TestClass2" time="0.006"/>
+    <testcase name="test12_ClassWithAttributesAndSlotsImpl" classname="codegenerator.test.exercise4.TestClass2" time="0.01"/>
+    <testcase name="test06_ClassWithAttributeImpl" classname="codegenerator.test.exercise4.TestClass2" time="0.004"/>
+    <testcase name="test10_ClassWithAttributeAndSlotImpl" classname="codegenerator.test.exercise4.TestClass2" time="0.003"/>
+    <testcase name="test02_EmptyClassImpl" classname="codegenerator.test.exercise4.TestClass2" time="0.002"/>
+    <testcase name="test07_ClassWithAttributeImpl2" classname="codegenerator.test.exercise4.TestClass2" time="0.004"/>
+    <testcase name="test13_ClassWithAttributesAndSlotsImpl2" classname="codegenerator.test.exercise4.TestClass2" time="0.009"/>
+    <testcase name="test11_ClassWithAttributeAndSlotImpl2" classname="codegenerator.test.exercise4.TestClass2" time="0.007"/>
+    <testcase name="test00_EmptyClassHeader" classname="codegenerator.test.exercise4.TestClass2" time="0.002"/>
+    <testcase name="test14_ClassWithArrayAttributeAndSlotImpl" classname="codegenerator.test.exercise4.TestClass2" time="0.008"/>
+    <testcase name="test09_ClassWithAttributeAndSlotHeader2" classname="codegenerator.test.exercise4.TestClass2" time="0.004"/>
+    <testcase name="test15_ClassWithArrayAttributeAndSlotImpl2" classname="codegenerator.test.exercise4.TestClass2" time="0.005"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise3.StabilityTest" time="1.445">
+    <testcase name="testParameter" classname="codegenerator.test.exercise3.StabilityTest" time="0.176"/>
+    <testcase name="testClass" classname="codegenerator.test.exercise3.StabilityTest" time="0.632"/>
+    <testcase name="testType" classname="codegenerator.test.exercise3.StabilityTest" time="0.032"/>
+    <testcase name="testOperations" classname="codegenerator.test.exercise3.StabilityTest" time="0.566"/>
+    <testcase name="testProperty" classname="codegenerator.test.exercise3.StabilityTest" time="0.038"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise2.TestProperty2" time="0.062">
+    <testcase name="test07_UnlimitedObjectListParameter" classname="codegenerator.test.exercise2.TestProperty2" time="0.004"/>
+    <testcase name="test10_ArrayProperty2" classname="codegenerator.test.exercise2.TestProperty2" time="0.008"/>
+    <testcase name="test03_ObjectArrayParameter" classname="codegenerator.test.exercise2.TestProperty2" time="0.014"/>
+    <testcase name="test04_ObjectArrayParameter2" classname="codegenerator.test.exercise2.TestProperty2" time="0.006"/>
+    <testcase name="test11_EnumInProperty" classname="codegenerator.test.exercise2.TestProperty2" time="0.012"/>
+    <testcase name="test00_PropertyInClass" classname="codegenerator.test.exercise2.TestProperty2" time="0.004"/>
+    <testcase name="test05_UnlimitedListParameter" classname="codegenerator.test.exercise2.TestProperty2" time="0.001"/>
+    <testcase name="test08_UnlimitedObjectListParameter2" classname="codegenerator.test.exercise2.TestProperty2" time="0.001"/>
+    <testcase name="test02_SimpleArrayParameter2" classname="codegenerator.test.exercise2.TestProperty2" time="0.001"/>
+    <testcase name="test01_SimpleArrayParameter" classname="codegenerator.test.exercise2.TestProperty2" time="0.002"/>
+    <testcase name="test09_EnumProperty" classname="codegenerator.test.exercise2.TestProperty2" time="0.001"/>
+    <testcase name="test06_UnlimitedListParameter2" classname="codegenerator.test.exercise2.TestProperty2" time="0.001"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise3.TestProperty3" time="0.016">
+    <testcase name="testEnumProperty" classname="codegenerator.test.exercise3.TestProperty3" time="0.002"/>
+    <testcase name="testArrayProperty2" classname="codegenerator.test.exercise3.TestProperty3" time="0.011"/>
+    <testcase name="testEnumInProperty" classname="codegenerator.test.exercise3.TestProperty3" time="0.002"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise1.TestProperty" time="0.018">
+    <testcase name="test02_ComplexTypedProperty" classname="codegenerator.test.exercise1.TestProperty" time="0.001"/>
+    <testcase name="test03_ComplexTypedProperty2" classname="codegenerator.test.exercise1.TestProperty" time="0.005"/>
+    <testcase name="test06_UntypedProperty" classname="codegenerator.test.exercise1.TestProperty" time="0.001"/>
+    <testcase name="test00_SimpleTypedProperty" classname="codegenerator.test.exercise1.TestProperty" time="0.001"/>
+    <testcase name="test04_NamespacedComplexTypedProperty" classname="codegenerator.test.exercise1.TestProperty" time="0.001"/>
+    <testcase name="test05_NamespacedComplexTypedProperty2" classname="codegenerator.test.exercise1.TestProperty" time="0.003"/>
+    <testcase name="test07_OwnedComplexTypedProperty" classname="codegenerator.test.exercise1.TestProperty" time="0.001"/>
+    <testcase name="test01_SimpleTypedProperty2" classname="codegenerator.test.exercise1.TestProperty" time="0.001"/>
+    <testcase name="test08_OwnedComplexTypedProperty2" classname="codegenerator.test.exercise1.TestProperty" time="0.001"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.TestEnumLiteral" time="0.009">
+    <testcase name="testSimpleLiteralWithValue" classname="codegenerator.test.TestEnumLiteral" time="0.002"/>
+    <testcase name="testSimpleLiteral" classname="codegenerator.test.TestEnumLiteral" time="0.001"/>
+    <testcase name="testLiteralInEnum" classname="codegenerator.test.TestEnumLiteral" time="0.002"/>
+    <testcase name="testLiteralInEnumWithValue" classname="codegenerator.test.TestEnumLiteral" time="0.003"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise3.TestClass" time="0.128">
+    <testcase name="test17_ClassHeaderWithIncludeInSameNamespace" classname="codegenerator.test.exercise3.TestClass" time="0.006"/>
+    <testcase name="test12_ClassHeaderInNamespace2" classname="codegenerator.test.exercise3.TestClass" time="0.004"/>
+    <testcase name="test09_ClassHeaderWithIncludeFromParameter" classname="codegenerator.test.exercise3.TestClass" time="0.004"/>
+    <testcase name="test24_ClassHeaderWithSortedIncludes" classname="codegenerator.test.exercise3.TestClass" time="0.007"/>
+    <testcase name="test01_EmptyClassHeader2" classname="codegenerator.test.exercise3.TestClass" time="0.001"/>
+    <testcase name="test13_ClassImplementationInNamespace" classname="codegenerator.test.exercise3.TestClass" time="0.003"/>
+    <testcase name="test23_ClassHeaderWithDependencyInOtherNamespaceInclude" classname="codegenerator.test.exercise3.TestClass" time="0.007"/>
+    <testcase name="test20_ClassHeaderWithEnumIncludeFromProperty" classname="codegenerator.test.exercise3.TestClass" time="0.003"/>
+    <testcase name="test08_ClassHeaderWithIncludeFromProperty2" classname="codegenerator.test.exercise3.TestClass" time="0.001"/>
+    <testcase name="test19_ClassHeaderWithMapyIncludes" classname="codegenerator.test.exercise3.TestClass" time="0.006"/>
+    <testcase name="test15_ClassHeaderWithIncludeInOtherNamespace" classname="codegenerator.test.exercise3.TestClass" time="0.003"/>
+    <testcase name="test03_ClassHeaderWithPropertyAndOperation" classname="codegenerator.test.exercise3.TestClass" time="0.003"/>
+    <testcase name="test11_ClassHeaderInNamespace" classname="codegenerator.test.exercise3.TestClass" time="0.006"/>
+    <testcase name="test21_ClassHeaderWithEnumInOtherNamespaceIncludeFromProperty" classname="codegenerator.test.exercise3.TestClass" time="0.004"/>
+    <testcase name="test16_ClassHeaderWithIncludeInOtherNamespace2" classname="codegenerator.test.exercise3.TestClass" time="0.01"/>
+    <testcase name="test14_ClassImplementationInNamespace2" classname="codegenerator.test.exercise3.TestClass" time="0.004"/>
+    <testcase name="test18_ClassHeaderWithIncludeInDeeperNamespace" classname="codegenerator.test.exercise3.TestClass" time="0.016"/>
+    <testcase name="test02_ClassHeaderWithProperties" classname="codegenerator.test.exercise3.TestClass" time="0.003"/>
+    <testcase name="test04_ClassHeaderWithPropertyAndOperation2" classname="codegenerator.test.exercise3.TestClass" time="0.005"/>
+    <testcase name="test10_ClassHeaderWithIncludeFromParameter2" classname="codegenerator.test.exercise3.TestClass" time="0.007"/>
+    <testcase name="test22_ClassHeaderWithDependencyInclude" classname="codegenerator.test.exercise3.TestClass" time="0.003"/>
+    <testcase name="test05_ClassImplementationWithPropertyAndOperation" classname="codegenerator.test.exercise3.TestClass" time="0.003"/>
+    <testcase name="test00_EmptyClassHeader" classname="codegenerator.test.exercise3.TestClass" time="0.002"/>
+    <testcase name="test06_ClassImplementationWithPropertyAndOperation2" classname="codegenerator.test.exercise3.TestClass" time="0.009"/>
+    <testcase name="test07_ClassHeaderWithIncludeFromProperty" classname="codegenerator.test.exercise3.TestClass" time="0.003"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.TestLiteralSpec" time="0.019">
+    <testcase name="testEmptyLiteralBoolean" classname="codegenerator.test.TestLiteralSpec" time="0.003"/>
+    <testcase name="testNullLiteralInteger" classname="codegenerator.test.TestLiteralSpec" time="0.001"/>
+    <testcase name="testEmptyLiteralString" classname="codegenerator.test.TestLiteralSpec" time="0.004"/>
+    <testcase name="testPositiveLiteralInteger" classname="codegenerator.test.TestLiteralSpec" time="0.0"/>
+    <testcase name="testFalseLiteralBoolean" classname="codegenerator.test.TestLiteralSpec" time="0.001"/>
+    <testcase name="testEmptyLiteralInteger" classname="codegenerator.test.TestLiteralSpec" time="0.001"/>
+    <testcase name="testNegativeLiteralInteger" classname="codegenerator.test.TestLiteralSpec" time="0.0"/>
+    <testcase name="testLiteralNull" classname="codegenerator.test.TestLiteralSpec" time="0.002"/>
+    <testcase name="testLiteralReal" classname="codegenerator.test.TestLiteralSpec" time="0.001"/>
+    <testcase name="testEmptyLiteralReal" classname="codegenerator.test.TestLiteralSpec" time="0.001"/>
+    <testcase name="testLiteralString" classname="codegenerator.test.TestLiteralSpec" time="0.001"/>
+    <testcase name="testTrueLiteralBoolean" classname="codegenerator.test.TestLiteralSpec" time="0.001"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise4.TestMain" time="0.001">
+    <testcase name="test00_Main" classname="codegenerator.test.exercise4.TestMain" time="0.001"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise1.TestParameter" time="0.044">
+    <testcase name="test04_PrimitiveReturnParameter" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test09_ComplexReturnParameter2" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test05_PrimitiveReturnParameter2" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test01_SimpleTypedParameter2" classname="codegenerator.test.exercise1.TestParameter" time="0.002"/>
+    <testcase name="test07_ComplexTypedParameter2" classname="codegenerator.test.exercise1.TestParameter" time="0.002"/>
+    <testcase name="test15_PrimitiveOutParameter2" classname="codegenerator.test.exercise1.TestParameter" time="0.002"/>
+    <testcase name="test13_ComplexInOutParameter2" classname="codegenerator.test.exercise1.TestParameter" time="0.008"/>
+    <testcase name="test11_PrimitiveInOutParameter2" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test06_ComplexTypedParameter" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test16_ComplexOutParameter" classname="codegenerator.test.exercise1.TestParameter" time="0.009"/>
+    <testcase name="test10_PrimitiveInOutParameter" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test08_ComplexReturnParameter" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test14_PrimitiveOutParameter" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test02_UntypedParameter" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test03_UntypedParameter2" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test00_SimpleTypedParameter" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+    <testcase name="test17_ComplexOutParameter2" classname="codegenerator.test.exercise1.TestParameter" time="0.003"/>
+    <testcase name="test12_ComplexInOutParameter" classname="codegenerator.test.exercise1.TestParameter" time="0.001"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise3.TestParameter2" time="0.004">
+    <testcase name="testArrayParameter2" classname="codegenerator.test.exercise3.TestParameter2" time="0.001"/>
+    <testcase name="testEnumParameter" classname="codegenerator.test.exercise3.TestParameter2" time="0.001"/>
+    <testcase name="testEnumInPackage" classname="codegenerator.test.exercise3.TestParameter2" time="0.002"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise2.TestParameter2" time="0.006">
+    <testcase name="test03_EnumInPackage" classname="codegenerator.test.exercise2.TestParameter2" time="0.001"/>
+    <testcase name="test01_EnumParameter" classname="codegenerator.test.exercise2.TestParameter2" time="0.001"/>
+    <testcase name="test02_EnumParameter2" classname="codegenerator.test.exercise2.TestParameter2" time="0.001"/>
+    <testcase name="test00_ParameterInOperation" classname="codegenerator.test.exercise2.TestParameter2" time="0.002"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise2.TestOperation" time="0.033">
+    <testcase name="test08_TwoParameterOperation2" classname="codegenerator.test.exercise2.TestOperation" time="0.003"/>
+    <testcase name="test00_SimpleOperation" classname="codegenerator.test.exercise2.TestOperation" time="0.001"/>
+    <testcase name="test15_DeclaredOperation" classname="codegenerator.test.exercise2.TestOperation" time="0.002"/>
+    <testcase name="test16_DeclaredOperation2" classname="codegenerator.test.exercise2.TestOperation" time="0.002"/>
+    <testcase name="test03_ReturningOperation" classname="codegenerator.test.exercise2.TestOperation" time="0.002"/>
+    <testcase name="test14_ImplementedOperation2" classname="codegenerator.test.exercise2.TestOperation" time="0.003"/>
+    <testcase name="test02_NestedClassOperation" classname="codegenerator.test.exercise2.TestOperation" time="0.002"/>
+    <testcase name="test13_ImplementedOperation" classname="codegenerator.test.exercise2.TestOperation" time="0.002"/>
+    <testcase name="test12_StaticOperationWithParam2" classname="codegenerator.test.exercise2.TestOperation" time="0.002"/>
+    <testcase name="test10_StaticOperation2" classname="codegenerator.test.exercise2.TestOperation" time="0.001"/>
+    <testcase name="test05_OneParameterOperation" classname="codegenerator.test.exercise2.TestOperation" time="0.002"/>
+    <testcase name="test07_TwoParameterOperation" classname="codegenerator.test.exercise2.TestOperation" time="0.002"/>
+    <testcase name="test04_ReturningOperation2" classname="codegenerator.test.exercise2.TestOperation" time="0.001"/>
+    <testcase name="test11_StaticOperationWithParam" classname="codegenerator.test.exercise2.TestOperation" time="0.001"/>
+    <testcase name="test01_SimpleOperation2" classname="codegenerator.test.exercise2.TestOperation" time="0.002"/>
+    <testcase name="test09_StaticOperation" classname="codegenerator.test.exercise2.TestOperation" time="0.001"/>
+    <testcase name="test06_OneParameterOperation2" classname="codegenerator.test.exercise2.TestOperation" time="0.002"/>
+  </testsuite>
+  <testsuite name="codegenerator.test.exercise2.TestStructuredClassifier" time="0.018">
+    <testcase name="test06_ClassWithOperationStruct" classname="codegenerator.test.exercise2.TestStructuredClassifier" time="0.003"/>
+    <testcase name="test02_ClassWithPropertyStruct" classname="codegenerator.test.exercise2.TestStructuredClassifier" time="0.002"/>
+    <testcase name="test07_ClassWithOperationStruct2" classname="codegenerator.test.exercise2.TestStructuredClassifier" time="0.004"/>
+    <testcase name="test01_EmptyClassStruct2" classname="codegenerator.test.exercise2.TestStructuredClassifier" time="0.0"/>
+    <testcase name="test05_ClassWithMoreProperties2Struct" classname="codegenerator.test.exercise2.TestStructuredClassifier" time="0.005"/>
+    <testcase name="test03_ClassWithProperty2Struct" classname="codegenerator.test.exercise2.TestStructuredClassifier" time="0.001"/>
+    <testcase name="test04_ClassWithMorePropertiesStruct" classname="codegenerator.test.exercise2.TestStructuredClassifier" time="0.002"/>
+    <testcase name="test00_EmptyClassStruct" classname="codegenerator.test.exercise2.TestStructuredClassifier" time="0.001"/>
+  </testsuite>
+</testrun>

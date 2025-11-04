@@ -1,0 +1,34 @@
+package codegenerator.debug
+
+import codegenerator.templates.ParameterTemplate
+import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.uml2.uml.ParameterDirectionKind
+
+class Main {
+
+	def static void main(String[] args) {
+		
+		// Create UML factory instance
+		val factory = UMLFactory.eINSTANCE
+
+		// Create a mock parameter
+		val param = factory.createParameter
+		param.name = "temperature"
+		param.direction = ParameterDirectionKind.INOUT_LITERAL
+
+		// Create a mock type (PrimitiveType: int)
+		val intType = factory.createPrimitiveType
+		intType.name = "int"
+		param.type = intType
+
+		// Instantiate the template
+		val template = new ParameterTemplate
+
+		// Call the template to generate code (null is fine for CodegenInterface here)
+		val code = template.generateCode(null, param, "declaration")
+
+		// Print result
+		println("Generated C code:")
+		println(code)
+	}
+}

@@ -1,0 +1,7 @@
+package codegenerator.debug;
+
+public class Snippet {
+	val type = if(umlParameter.type !== null) generate(umlParameter.type, "type") else "void*"
+	
+}
+

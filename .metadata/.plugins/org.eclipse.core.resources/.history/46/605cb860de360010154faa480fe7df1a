@@ -1,0 +1,36 @@
+package codegenerator.templates
+
+import codegenerator.Template
+import codegenerator.CodegenInterface
+import org.eclipse.uml2.uml.Artifact
+
+class ArtifactTemplate implements Template<Artifact> {
+//Artifact umlArtifact: das UML-Artifact-Objekt, für das Code generiert wird.
+
+	override generateCode(CodegenInterface it, Artifact umlArtifact, String context) {
+		switch (context) {
+			case "include": {
+
+				val file = umlArtifact.fileName
+				// System.out.println(file)
+				//Wenn kein Dateiname vorhanden oder leer: gibt null zurück
+				if (file === null || file.trim.empty)
+					return null
+					//Wenn Dateiname mit < und > eingeschlossen ist (also z.B. <stdio.h>), dann wird die Include-Zeile mit spitzen Klammern erzeugt
+				else if (file.startsWith("<") && file.endsWith(">"))
+					return "#include " + file//Sonst wird die Include-Zeile mit Anführungszeichen erzeugt
+				else
+					System.out.println(file)
+
+				return "#include \"" + file + "\""
+
+			}
+			case "type": {
+				return generate(umlArtifact, "name")
+			}
+			default:
+				throw new UnsupportedOperationException("Unsupported context: " + context)
+		}
+	}
+
+}

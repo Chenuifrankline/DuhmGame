@@ -1,0 +1,59 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Operation
+import org.eclipse.uml2.uml.Parameter
+import org.eclipse.uml2.uml.ParameterDirectionKind
+import org.eclipse.uml2.uml.OpaqueBehavior
+
+class OperationTemplate implements Template<Operation> {
+
+	override generateCode(CodegenInterface it, Operation umlOperation, String context) {
+		val name = umlOperation.name
+		val klasse = umlOperation.class_
+		val param = umlOperation.ownedParameters
+		val isStatic = umlOperation.isStatic
+
+		// Get return type
+		val returnParam = param.findFirst[direction.literal == "return"]
+		val returnType = if (returnParam !== null) it.generate(returnParam, "return") else "void"
+
+		// Filter non-return parameters
+		val inputParams = if (param !== null) param.filter[direction.literal != "return"] else newArrayList
+
+		// Generate string of input parameters
+		val paramString = inputParams.map[p | it.generate(p, "parameter")].join(", ")
+
+		// Create function name prefix based on package and class
+		val prefix = if (klasse.package !== null)
+			it.generate(klasse.package, "name") + "_" + klasse.name
+		else
+			klasse.name
+
+		// Construct full parameter list
+		var paramList = ""
+		if (!isStatic) {
+			paramList = prefix + "* const me"
+			if (!paramString.empty) {
+				paramList += ", " + paramString
+			}
+		} else {
+			paramList = if (!paramString.empty) paramString else "void"
+		}
+
+		// If method has an implementation body and context is not "declaration"
+		if (!umlOperation.methods.empty && !context.equals("declaration")) {
+			val method = umlOperation.methods.get(0)
+			if (method instanceof OpaqueBehavior) {
+				return '''
+					«returnType» «prefix»_«name»(«paramList») {
+						«method.bodies.get(0)»
+					}'''
+			}
+		}
+
+		// Default to function declaration
+		'''«returnType» «prefix»_«name»(«paramList»);'''
+	}
+}

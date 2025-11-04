@@ -1,0 +1,58 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Operation
+import org.eclipse.uml2.uml.ParameterDirectionKind
+import org.eclipse.uml2.uml.OpaqueBehavior
+
+class OperationTemplate implements Template<Operation> {
+
+	override generateCode(CodegenInterface it, Operation umlOperation, String context) {
+		// Rückgabetyp initialisieren
+		var type = "void"
+		if (umlOperation.type !== null) {
+			type = generate(umlOperation.type, "type")
+		}
+
+		// Name der Operation
+		val name = generate(umlOperation, "name")
+
+		// Parameterliste
+		var param = ""
+
+		// Für nicht-statische Methoden: 'const <Klassenname>* me' als ersten Parameter
+		if (!umlOperation.isStatic) {
+			param = generate(umlOperation.class_, "type") + " const me"
+		}
+
+		// Alle Nicht-Rückgabe-Parameter hinzufügen
+		for (p : umlOperation.ownedParameters) {
+			if (p.direction != ParameterDirectionKind.RETURN_LITERAL) {
+				if (!param.empty) {
+					param += ", "
+				}
+				param += generate(p, "parameter")
+			}
+		}
+
+		// Wenn keine Parameter vorhanden sind, explizit 'void' einfügen (C-Konvention)
+		if (param.empty) {
+			param = "void"
+		}
+
+		// Implementierung vorhanden? Dann Codeblock erzeugen
+		if (!umlOperation.methods.empty && !context.equals("declaration")) {
+			val methods = umlOperation.methods.get(0)
+			if (methods instanceof OpaqueBehavior) {
+				return '''
+				«type» «name»(«param») {
+					«methods.bodies.get(0)»
+				}'''
+			}
+		}
+
+		// Deklaration zurückgeben
+		return '''«type» «name»(«param»);'''
+	}
+}

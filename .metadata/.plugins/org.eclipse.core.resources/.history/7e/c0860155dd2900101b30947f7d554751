@@ -1,0 +1,38 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Property
+import org.eclipse.uml2.uml.AggregationKind
+
+class PropertyTemplate implements Template<Property> {
+
+	override generateCode(CodegenInterface it, Property umlProperty, String context) {
+
+		val name = umlProperty.name
+		val rawType = if (umlProperty.type !== null) generate(umlProperty.type, "type") else "void*"
+
+		// Prüfe auf Enum
+		val isEnum = umlProperty.type?.eClass?.name == "Enumeration"
+		val typeName = if (isEnum) umlProperty.type.name else rawType
+
+		// Prüfe auf Array
+		var arraySuffix = ""
+		var pointer = ""
+
+		if (umlProperty.upper > 1) {
+			arraySuffix = "[" + umlProperty.upper + "]"
+		} else if (umlProperty.upper < 0) {
+			pointer = "*"
+		}
+
+		// Prüfe auf Aggregation
+		if (!(umlProperty.type == null) && umlProperty.aggregation == AggregationKind.COMPOSITE_LITERAL) {
+			// Bei Komposition: keine Pointer, kein Array
+			return '''«typeName» «name»;'''
+		}
+
+		// Standardausgabe mit Typ, Pointer und evtl. Array
+		return '''«typeName» «pointer»«name»«arraySuffix»;'''
+	}
+}

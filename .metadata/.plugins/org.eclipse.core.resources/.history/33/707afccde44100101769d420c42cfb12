@@ -1,0 +1,83 @@
+package codegenerator.test.exercise4
+
+import codegenerator.Uml2C
+import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.uml2.uml.Model
+import org.eclipse.uml2.uml.InstanceSpecification
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.Behavior
+import org.junit.Assert
+import org.junit.Test
+
+class TestMain {
+
+extension UMLFactory factory = UMLFactory.eINSTANCE
+
+@Test def void testMainGeneration() {
+// Modell erstellen
+val model = factory.createModel()
+model.name = "TestModel"
+
+// Klasse anlegen
+val clazz = factory.createClass()
+clazz.name = "Duhm_Game"
+
+// Behavior anlegen und mit Klasse verbinden
+val behavior = factory.createOpaqueBehavior()
+behavior.name = "Duhm_Game_Behavior"
+
+// Add behavior to model first
+model.packagedElements.add(behavior)
+
+// Set classifier behavior
+clazz.classifierBehavior = behavior
+
+// Add class to model
+model.packagedElements.add(clazz)
+
+// Instanz anlegen
+val instance = factory.createInstanceSpecification()
+instance.name = "Duhm_game"
+
+// Connect instance to class
+instance.classifiers.add(clazz)
+
+// Add instance to model
+model.packagedElements.add(instance)
+
+// Alternative: Try setting the instance in the model's owned members
+// if your generator looks there instead
+try {
+    model.ownedMembers.add(instance)
+} catch (UnsupportedOperationException e) {
+    // Ignore if not supported
+}
+
+// Codegenerator initialisieren
+val generator = new Uml2C()
+
+
+// Check for instances specifically
+val instances = model.packagedElements.filter(InstanceSpecification)
+instances.forEach[
+    println("  Instance: " + it.name)
+    println("  Classifiers: " + it.classifiers.map[name].join(", "))
+]
+
+// Main-Code generieren
+val code = generator.generateCode(model, "main")
+println("Generated code: '" + code + "'")
+
+// Erwarteter Code (entsprechend Listing 3)
+val expected = '''
+#include "Duhm_Game.h"
+
+int main() {
+Duhm_Game_run(&Duhm_game);
+}
+'''.toString.trim()
+
+// Test prüfen
+Assert.assertEquals(expected.trim(), code.trim())
+}
+}

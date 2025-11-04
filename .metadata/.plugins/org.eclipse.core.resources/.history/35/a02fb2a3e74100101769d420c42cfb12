@@ -1,0 +1,61 @@
+package codegenerator.test.exercise4
+
+import codegenerator.Uml2C
+import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.uml2.uml.Model
+import org.eclipse.uml2.uml.InstanceSpecification
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.Package
+import org.eclipse.uml2.uml.Activity
+import org.junit.Assert
+import org.junit.Test
+
+class TestMain {
+
+extension UMLFactory factory = UMLFactory.eINSTANCE
+
+@Test def void testMainGeneration() {
+    // Create model with fluent style
+    val umlModel = createModel
+    umlModel.name = "MainModel"
+    
+    // Create Duhm package
+    val duhmPackage = createPackage
+    duhmPackage.name = "Duhm"
+    
+    // Create Game class
+    val gameClass = createClass
+    gameClass.name = "Game"
+    
+    // Create run activity
+    val runActivity = createActivity
+    runActivity.name = "run"
+    gameClass.classifierBehavior = runActivity
+    
+    // Build package structure
+    duhmPackage.packagedElements.add(gameClass)
+    umlModel.packagedElements.add(duhmPackage)
+    
+    // Create instance
+    val gameInstance = createInstanceSpecification
+    gameInstance.name = "game"
+    gameInstance.classifiers.add(gameClass)
+    umlModel.packagedElements.add(gameInstance)
+    
+    // Generate code
+    val code = (new Uml2C).generateCode(umlModel, "main")
+    
+    
+    // Expected result
+    val expected = '''
+#include "Duhm/Game.h"
+
+int main() {
+Duhm_Game_run(&Duhm_game);
+}
+'''.toString.trim()
+    
+    // Test assertion
+    Assert.assertEquals(expected, code.trim())
+}
+}

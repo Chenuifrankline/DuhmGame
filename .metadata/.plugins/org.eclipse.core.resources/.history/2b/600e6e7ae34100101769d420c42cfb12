@@ -1,0 +1,65 @@
+package codegenerator.test.exercise4
+
+import codegenerator.Uml2C
+import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.uml2.uml.Model
+import org.eclipse.uml2.uml.InstanceSpecification
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.Behavior
+import org.junit.Assert
+import org.junit.Test
+
+class TestMain {
+
+    extension UMLFactory factory = UMLFactory.eINSTANCE
+
+    @Test def void testMainGeneration() {
+        // Modell erstellen
+        val model = factory.createModel()
+        model.name = "TestModel"
+
+        // UML-Package als Container
+        val pkg = factory.createPackage()
+        pkg.name = "TestPackage"
+        model.ownedElements += pkg
+
+        // Klasse mit classifierBehavior anlegen
+        val clazz = factory.createClass()
+        clazz.name = "Duhm_Game"
+        pkg.packagedElements += clazz
+
+        // Behavior erzeugen und zuweisen
+        val behavior = factory.createOpaqueBehavior()
+        behavior.name = "Duhm_Game_Behavior"
+        clazz.classifierBehavior = behavior
+        pkg.packagedElements += behavior
+
+        // Instanz anlegen
+        val instance = factory.createInstanceSpecification()
+        instance.name = "Duhm_game"
+
+        // ❗ Workaround: Klasse zur Instanz nicht direkt zuweisen, sondern Generator erkennt dies ggf. über Namenskonvention
+        // Alternativ: Wenn classifiers doch erlaubt ist, kannst du versuchen:
+        // instance.getClassifiers().add(clazz) — aber nur wenn NICHT DerivedEObjectEList
+
+        pkg.packagedElements += instance
+
+        // Codegenerator initialisieren
+        val generator = new Uml2C()
+
+        // Main-Code generieren
+        val code = generator.generateCode(model, "main")
+
+        // Erwarteter Code laut Aufgabenstellung
+        val expected = '''
+            #include "Duhm_Game.h"
+
+            int main() {
+                Duhm_Game_run(&Duhm_game);
+            }
+        '''.toString.trim()
+
+        // Ergebnis prüfen
+        Assert.assertEquals(expected.trim(), code.trim())
+    }
+}

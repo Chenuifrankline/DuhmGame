@@ -1,0 +1,64 @@
+package codegenerator.test.exercise4
+
+import codegenerator.Uml2C
+import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.uml2.uml.Model
+import org.eclipse.uml2.uml.InstanceSpecification
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.Behavior
+import org.junit.Assert
+import org.junit.Test
+
+class TestMain {
+
+extension UMLFactory factory = UMLFactory.eINSTANCE
+
+@Test def void testMainGeneration() {
+// Modell erstellen
+val model = factory.createModel()
+model.name = "TestModel"
+
+// Klasse anlegen
+val clazz = factory.createClass()
+clazz.name = "Duhm_Game"
+
+// Behavior anlegen
+val behavior = factory.createOpaqueBehavior()
+behavior.name = "Duhm_Game_Behavior"
+
+// Set classifier behavior
+clazz.classifierBehavior = behavior
+
+// Instanz anlegen
+val instance = factory.createInstanceSpecification()
+instance.name = "Duhm_game"
+
+// Connect instance to class
+instance.classifiers.add(clazz)
+
+// Add elements to model
+model.packagedElements.add(clazz)
+model.packagedElements.add(behavior)
+model.packagedElements.add(instance)
+
+// Codegenerator initialisieren
+val generator = new Uml2C()
+
+// Main-Code generieren
+val code = generator.generateCode(model, "main")
+
+// Expected code based on what your generator actually produces
+val expected = '''
+#include "TestModel\\Duhm_Game.h"
+
+int main() {
+TestModel_Duhm_Game_Duhm_Game_Behavior(&TestModel_Duhm_game);
+
+return 0;
+}
+'''.toString.trim()
+
+// Test prüfen
+Assert.assertEquals(expected.trim(), code.trim())
+}
+}

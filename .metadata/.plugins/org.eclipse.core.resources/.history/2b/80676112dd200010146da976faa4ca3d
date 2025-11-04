@@ -1,0 +1,40 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.AggregationKind
+import org.eclipse.uml2.uml.Property
+import javax.lang.model.type.PrimitiveType
+import org.eclipse.uml2.uml.Artifact
+
+class PropertyTemplate implements Template<Property> {
+
+    override generateCode(CodegenInterface it, Property umlProperty, String context) {
+        
+        // Get the property name
+        val name = umlProperty.name
+        var pointer = ""  // Pointer will be '*' for reference types
+        var upper = ""    // Upper bound (e.g., array size or '[]')
+  // Generate the property type (e.g., int, MyClass, etc.)
+        val type = generate(umlProperty.type, "type")
+ 
+        // Check the upper bound for arrays and pointers
+        if (umlProperty.upper > 1) {
+            upper = "[" + umlProperty.upper.toString() + "]"  // fixedsize
+        } else if (umlProperty.upper < 0) {
+            pointer = "*"  //unbounded properties
+        }
+
+       
+        // Handle composite aggregation 
+        if (!(umlProperty.type instanceof PrimitiveType ) &&
+            umlProperty.aggregation == AggregationKind.COMPOSITE_LITERAL) {
+            // For composite aggregation, no pointer, just the type and name
+            return umlProperty.type.name + " " + name +""+upper +";";
+        } else {
+            // For normal properties, add pointer (*) and upper bound ([])
+            return type +""+ pointer +" "+ name +""+ upper+";";
+        }
+    }
+}
+

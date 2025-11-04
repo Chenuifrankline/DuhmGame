@@ -1,0 +1,71 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.StructuredClassifier
+
+class StructuredClassifierTemplate implements Template<StructuredClassifier> {
+
+    override generateCode(CodegenInterface it, StructuredClassifier umlClassifier, String context) {
+        // TODO: Aufgabe 2
+
+
+switch (context) {
+        case "typedefinition": {
+            val fullName = generate(umlClassifier, "name")
+            val propertiesCode = umlClassifier.ownedAttributes.map [ attr |
+                generate(attr, "attribute")
+            ].join("\n")
+
+            return '''
+                typedef struct «fullName»_struct {
+                	«IF propertiesCode !== ""»«propertiesCode»«ENDIF»
+                } «fullName»;
+            '''.toString
+        }
+
+        default:
+            ""
+    }
+    }
+}
+
+//package codegenerator.templates
+//
+//import codegenerator.CodegenInterface
+//import codegenerator.Template
+//import org.eclipse.uml2.uml.StructuredClassifier
+//
+//class StructuredClassifierTemplate implements Template<StructuredClassifier> {
+//
+//	override generateCode(CodegenInterface it, StructuredClassifier umlClassifier, String context) {
+//		val name = if (umlClassifier.package !== null)
+//				it.generate(umlClassifier.package, "name") + "_" + umlClassifier.name
+//			else
+//				umlClassifier.name
+//
+//		val attributes = umlClassifier.ownedAttributes.map [ attr |
+//			var typeName = attr.type.name
+//			if (attr.type.package !== null) {
+//				typeName = it.generate(attr.type.package, "name") + "_" + typeName
+//			}
+//			if (attr.upper == -1) {
+//				typeName + "* " + attr.name + ";"
+//			} else if (attr.upper > 1) {
+//				typeName + " " + attr.name + "[" + attr.upper + "];"
+//			} else {
+//				typeName + " " + attr.name + ";"
+//			}
+//		].join("\n")
+//
+//		return if (attributes.empty)
+//			'''typedef struct «name»_struct {
+//} «name»;
+//'''
+//		else
+//			'''typedef struct «name»_struct {
+//	«attributes»
+//} «name»;
+//'''
+//	}
+//}

@@ -1,0 +1,55 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Operation
+import org.eclipse.uml2.uml.Parameter
+import org.eclipse.uml2.uml.ParameterDirectionKind
+import org.eclipse.uml2.uml.VisibilityKind
+
+class OperationTemplate implements Template<Operation> {
+
+    override generateCode(CodegenInterface it, Operation umlOperation, String context) {
+        // Name der Operation
+        val name = umlOperation.name
+        // Die Klasse, zu der die Operation gehört
+        val klasse = umlOperation.class_
+        // Die Parameter der Operation
+        val param = umlOperation.ownedParameters
+        // Statisch oder nicht?
+        val isStatic = umlOperation.isStatic
+
+        // Rückgabewert der Operation (wenn vorhanden)
+        val returnParam = param.findFirst[p.direction == ParameterDirectionKind.RETURN_LITERAL]
+        val returnType = if (returnParam !== null) generate(returnParam, "return") else "void"
+
+        // Alle Eingabeparameter (außer dem Rückgabewert)
+        val inputParams = if (param !== null) param.filter[p.direction != ParameterDirectionKind.RETURN_LITERAL] else newArrayList
+
+        // Parameternamen in C-Format umwandeln (getrennt durch Kommas)
+        val paramString = inputParams.map[p | generate(p, "parameter")].join(", ")
+
+        // Prefix für die Methode: Name der Klasse, ggf. mit Paketnamen
+        val prefix = if (klasse.package !== null) 
+                        generate(klasse.package, "name") + "_" + klasse.name
+                    else 
+                        klasse.name
+
+        // Die endgültige Liste der Parameter für den Funktionsaufruf
+        var paramList = ""
+        if (!isStatic) {
+            paramList = prefix + "* const me"  // Wenn die Methode nicht statisch ist, wird 'me' als Parameter hinzugefügt
+            if (!paramString.empty) {
+                paramList = paramList + ", " + paramString
+            }
+        } else {
+            // Bei statischen Methoden werden nur die Eingabeparameter berücksichtigt
+            paramList = if (!paramString.empty) paramString else "void"
+        }
+
+        // Der endgültige Funktionsname im C-Stil (mit Präfix und Parametern)
+        var finalName = '''«returnType» «prefix»_«name»(«paramList»);'''
+
+        return finalName
+    }
+}

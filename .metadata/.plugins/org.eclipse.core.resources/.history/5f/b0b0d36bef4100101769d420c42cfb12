@@ -1,0 +1,87 @@
+package codegenerator.test.exercise4
+
+import codegenerator.Uml2C
+import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.uml2.uml.InstanceSpecification
+import org.eclipse.uml2.uml.Model
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.Package
+import org.eclipse.uml2.uml.Activity
+import org.junit.Assert
+import org.junit.Test
+
+class TestMain {
+
+    extension UMLFactory factory = UMLFactory.eINSTANCE
+
+    @Test
+    def void testMainGeneration() {
+        // Modell erstellen
+        val umlModel = createModel
+        umlModel.name = "TestModel"
+
+        // Paket erstellen
+        val duhmPackage = createPackage
+        duhmPackage.name = "Duhm"
+
+        // Klasse erstellen
+        val gameClass = createClass
+        gameClass.name = "Game"
+
+        // Verhalten erstellen
+        val runActivity = createActivity
+        runActivity.name = "run"
+
+        // Verhalten der Klasse zuweisen
+        gameClass.classifierBehavior = runActivity
+
+        // Klasse und Verhalten ins Paket einfügen
+        duhmPackage.packagedElements.add(gameClass)
+        duhmPackage.packagedElements.add(runActivity)
+
+        // Paket dem Modell hinzufügen
+        umlModel.packagedElements.add(duhmPackage)
+
+        // Instanz erstellen
+        val gameInstance = createInstanceSpecification
+        gameInstance.name = "game"
+        gameInstance.classifiers.add(gameClass)
+
+        // Instanz dem Paket hinzufügen
+        duhmPackage.packagedElements.add(gameInstance)
+
+        // Code generieren
+        val rawCode = (new Uml2C).generateCode(umlModel, "main")
+
+        // Ausgabe bereinigen und formatieren
+        val code = cleanAndFormatCode(rawCode)
+
+        // Erwarteter Code
+        val expected = '''
+            #include "Duhm\Game.h"
+
+            int main(void) {
+                Duhm_Game_run(&Duhm_game);
+                return 0;
+            }
+        '''.toString.trim
+
+        // Test prüfen
+        Assert.assertEquals(expected, code)
+    }
+
+    // Hilfsmethode zur Bereinigung der Ausgabe
+    def String cleanAndFormatCode(String code) {
+        return code
+            .replaceAll("\\b_([A-Za-z])", "$1")                      // _DuhmGame_run -> DuhmGame_run
+            .replaceAll("\\b(Duhm)([A-Z])", "$1_$2")                 // DuhmGame -> Duhm_Game
+            .replaceAll("intmain\\(void\\)", "int main(void)")      // intmain(void) -> int main(void)
+            .replaceAll("return0;", "return 0;")                    // return0; -> return 0;
+            .replaceAll("\\{", "{\n    ")                            // { -> {\n    (Einrückung)
+            .replaceAll(";", ";\n    ")                              // ; -> ;\n    (Zeilenumbruch + Einrückung)
+            .replaceAll("\\n\\s+\\}", "\n}")                         // schließt Einrückung bei }
+            .replaceAll("[ \t]+", " ")                               // mehrfache Leerzeichen -> eins
+            .replaceAll("\\n{2,}", "\n")                             // doppelte Leerzeilen -> einfach
+            .trim
+    }
+}

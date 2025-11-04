@@ -1,0 +1,37 @@
+package codegenerator.test.exercise4
+
+import codegenerator.Uml2C
+
+import org.eclipse.uml2.uml.UMLFactory
+import org.junit.Assert
+import org.junit.Test
+
+class TestMain {
+
+	extension UMLFactory factory = UMLFactory.eINSTANCE
+
+@Test def void test00_Main() {
+    val umlClass = factory.createClass
+    umlClass.name = "Person"
+
+    val attribute = factory.createProperty
+    attribute.name = "age"
+
+    val intType = factory.createPrimitiveType
+    intType.name = "int"
+    attribute.type = intType
+
+    umlClass.ownedAttributes += attribute
+
+    val generator = new Uml2C
+    val header = generator.generateCode(umlClass, "typedefinition")
+
+    val expected = '''
+        typedef struct Person_struct {
+        	int age;
+        } Person;
+    '''.toString.trim
+
+    Assert.assertEquals(expected, header.trim)
+}
+}

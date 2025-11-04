@@ -1,0 +1,46 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.StructuredClassifier
+
+class StructuredClassifierTemplate implements Template<StructuredClassifier> {
+
+	override generateCode(CodegenInterface it, StructuredClassifier umlClassifier, String context) {
+		// Name generation for the struct
+		val name = if (umlClassifier.package !== null)
+				it.generate(umlClassifier.package, "name") + "_" + umlClassifier.name
+			else
+				umlClassifier.name
+
+		// Attribute generation for the struct
+		val attributes = umlClassifier.ownedAttributes.map [ attr |
+			var typeName = attr.type.name
+			if (attr.type.package !== null) {
+				typeName = it.generate(attr.type.package, "name") + "_" + typeName
+			}
+			// Handle different array types
+			if (attr.upper == -1) {
+				// Dynamically sized array (pointer)
+				typeName + "* " + attr.name + ";"
+			} else if (attr.upper > 1) {
+				// Fixed-size array
+				typeName + " " + attr.name + "[" + attr.upper + "];"
+			} else {
+				// Single variable
+				typeName + " " + attr.name + ";"
+			}
+		].join("\n")
+
+		// If there are no attributes, create an empty struct definition
+		return if (attributes.empty)
+			'''typedef struct «name»_struct {
+} «name»;
+'''
+		else
+			'''typedef struct «name»_struct {
+	«attributes»
+} «name»;
+'''
+	}
+}

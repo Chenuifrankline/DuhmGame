@@ -1,0 +1,39 @@
+package codegenerator.test.exercise4
+
+import codegenerator.Uml2C
+import codegenerator.Uml2CInterface
+import org.eclipse.uml2.uml.UMLFactory
+import org.junit.Test
+
+class TestMain {
+
+	extension UMLFactory factory = UMLFactory.eINSTANCE
+
+	@Test def void test00_Main() {
+				// TODO: Aufgabe 4
+		
+	val model = factory.createModel
+
+	val cls = factory.createClass => [
+		name = "MyClass"
+		classifierBehavior = factory.createOpaqueBehavior => [
+			name = "run"
+		]
+	]
+
+	val instance = factory.createInstanceSpecification => [
+		name = "myInstance"
+		classifiers += cls
+	]
+
+	model.packagedElements += cls
+	model.packagedElements += cls.classifierBehavior
+	model.packagedElements += instance
+
+	val generator = new Uml2CInterface(new Uml2C, newHashMap)
+
+	
+}
+
+
+}

@@ -1,0 +1,51 @@
+
+
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Operation
+
+class OperationTemplate implements Template<Operation> {
+
+	override generateCode(CodegenInterface it, Operation umlOperation, String context) {
+		// TODO: Aufgabe 2
+		val name = umlOperation.name
+		val klasse = umlOperation.class_
+		val param = umlOperation.ownedParameters
+		val isStatic = umlOperation.isStatic
+
+
+		val returnParam = param.findFirst[direction.literal == "return"]
+		val returnType = if(returnParam !== null) generate(returnParam, "return") else "void"
+
+
+		val inputParams = if(param !== null) param.filter[direction.literal != "return"] else newArrayList
+
+
+		val paramString = inputParams.map[p|generate(p, "parameter")].join(", ")
+
+
+		val prefix = if (klasse.package !== null)
+				generate(klasse.package, "name") + "_" + klasse.name
+			else
+				klasse.name
+
+
+		var paramList = ""
+		if (!isStatic) {
+			paramList = prefix + "* const me"
+			if (!paramString.empty) {
+				paramList = paramList + ", " + paramString
+			}
+		} else {
+			paramList = if(!paramString.empty) paramString else "void"
+		}
+
+
+		var finalName = '''«returnType» «prefix»_«name»(«paramList»);'''
+
+		return finalName
+	}
+}
+

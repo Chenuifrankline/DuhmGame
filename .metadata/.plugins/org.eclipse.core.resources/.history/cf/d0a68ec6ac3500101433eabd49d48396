@@ -1,0 +1,22 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.InstanceValue
+
+class InstanceValueTemplate implements Template<InstanceValue> {
+override String generateCode(CodegenInterface it, InstanceValue obj, String context) {
+    val instance = obj.instance
+    if (instance === null)
+        return "0"
+    
+    switch (context) {
+        case "pointer":
+            return "&" + generate(instance, "name")
+        case "name":
+            return generate(instance, "name")
+        default:
+            return "&" + generate(instance, "name")
+    }
+}
+}

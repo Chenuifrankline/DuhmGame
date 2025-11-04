@@ -1,0 +1,385 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import java.nio.file.Path
+import java.nio.file.Paths
+import java.util.HashSet
+import java.util.LinkedList
+import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.NamedElement
+import org.eclipse.uml2.uml.Type
+import org.eclipse.uml2.uml.PrimitiveType
+import org.eclipse.uml2.uml.Enumeration
+import org.eclipse.uml2.uml.EnumerationLiteral
+import org.eclipse.uml2.uml.Dependency
+import org.eclipse.uml2.uml.InstanceSpecification
+import org.eclipse.uml2.uml.Artifact
+import org.eclipse.uml2.uml.Property
+import org.eclipse.uml2.uml.Operation
+import org.eclipse.uml2.uml.Parameter
+
+class ClassTemplate implements Template<Class> {
+
+	override String generateCode(CodegenInterface it, Class umlClass, String context) {
+		switch (context) {
+			case "declaration": genH(it, umlClass)
+			case "implementation": genC(it, umlClass)
+			default: '''unbekannter Kontext «context»'''
+		}
+	}
+
+	def String genC(CodegenInterface it, Class umlClass) {
+		val className = umlClass?.name
+
+		val instances = umlClass.model?.packagedElements?.filter(InstanceSpecification)?.filter [ i |
+			i.classifiers.size == 1 && i.classifiers.head == umlClass
+		]
+
+		val instanceDefs = instances?.map[ i |
+			val typeName = generate(umlClass, "name")
+			val instanceName = generate(i, "name")
+
+			val slotInits = i.slots.map [ slot |
+				val attr = slot.definingFeature 
+				val attrName = attr?.name
+
+				if (attrName === null || slot.values.empty){
+					return null
+				}
+
+				if (slot.values.size > 1) {
+					val valueList = slot.values.map[v | generate(v, "value")]
+					'''	.«attrName» = {
+		«valueList.join(",\n")»
+	}'''
+				} else {
+					val singleValue = generate(slot.values.head, "value")
+					'''	.«attrName» = «singleValue»'''
+				}
+			].filterNull
+
+			if (slotInits.empty) {
+				'''«typeName» «instanceName» = {
+};'''
+			} else {
+				'''«typeName» «instanceName» = {
+«slotInits.join(",\n")»
+};'''
+			}
+		]
+
+		val operations = umlClass.ownedOperations.map [ op |
+			generate(op, "implementation")
+		]
+
+		return '''
+			#include "«className».h"
+			
+			«IF !operations.empty»
+			«operations.join("\n\n")»
+			«ENDIF»
+			«IF instanceDefs !== null && !instanceDefs.empty»
+			
+			«instanceDefs.join("\n\n")»
+			«ENDIF»
+		'''
+	}
+
+	def String genH(CodegenInterface it, Class umlClass) {
+		val packageName = if(umlClass.package !== null) generate(umlClass.package, "name") + "_" else ""
+		val className = (packageName + umlClass.name).toUpperCase
+		val structCode = generate(umlClass, "typedefinition")
+		val includes = generateIncludes(it, umlClass).trim
+
+		val instances = umlClass.model?.packagedElements?.filter(InstanceSpecification)?.filter [ i |
+			i.classifiers.size == 1 && i.classifiers.head == umlClass
+		]
+
+		val operations = umlClass.ownedOperations.map [ op |
+			generate(op, "declaration")
+		]
+		
+		val instanceDecls = instances?.map[ i |
+			val classTypeName = generate(umlClass, "name")
+			val instanceName = generate(i, "name")
+			'''extern «classTypeName» «instanceName»;'''
+		]
+
+		return '''
+#ifndef «className»_H
+#define «className»_H
+
+«IF !includes.empty»
+«includes»
+
+«ENDIF»
+«structCode»«IF !operations.empty»
+
+«operations.join("\n\n")»
+«ENDIF»
+
+«IF instanceDecls !== null && !instanceDecls.empty»
+«instanceDecls.join("\n")»
+
+«ENDIF»
+#endif
+'''
+	}
+
+	def String generateIncludes(CodegenInterface it, Class umlClass) {
+		val types = new HashSet<Type>()
+		val artifacts = new HashSet<Artifact>()
+		val enumerations = new HashSet<Enumeration>()
+
+		// Collect types from attributes
+		for (property : umlClass.ownedAttributes) {
+			collectTypesFromProperty(it, property, types, artifacts, enumerations, umlClass)
+		}
+
+		// Collect types from operations (return types and parameters)
+		for (operation : umlClass.ownedOperations) {
+			collectTypesFromOperation(it, operation, types, artifacts, enumerations, umlClass)
+		}
+
+		// Collect types from dependencies
+		for (rel : umlClass.relationships.filter(Dependency)) {
+			val dep = rel as Dependency 
+			for (supplier : dep.suppliers) {
+				if (supplier instanceof Type && shouldIncludeType(supplier as Type, umlClass)) {
+					addTypeToCollection(supplier as Type, types, artifacts, enumerations)
+				}
+			}
+		}
+
+		// Collect types from instance specifications (for enum literals and constants)
+		collectTypesFromInstances(it, umlClass, types, artifacts, enumerations)
+
+		// Generate includes
+		return buildIncludeString(it, umlClass, types, artifacts, enumerations)
+	}
+
+	private def void collectTypesFromProperty(CodegenInterface it, Property property, 
+		HashSet<Type> types, HashSet<Artifact> artifacts, HashSet<Enumeration> enumerations, Class currentClass) {
+		
+		if (property.type !== null && shouldIncludeType(property.type, currentClass)) {
+			addTypeToCollection(property.type, types, artifacts, enumerations)
+		}
+
+		// Check for enum literals in default values
+		if (property.defaultValue !== null) {
+			collectTypesFromValueSpec(it, property.defaultValue, types, artifacts, enumerations, currentClass)
+		}
+	}
+
+	private def void collectTypesFromOperation(CodegenInterface it, Operation operation,
+		HashSet<Type> types, HashSet<Artifact> artifacts, HashSet<Enumeration> enumerations, Class currentClass) {
+		
+		if (operation.type !== null && shouldIncludeType(operation.type, currentClass)) {
+			addTypeToCollection(operation.type, types, artifacts, enumerations)
+		}
+
+		for (parameter : operation.ownedParameters) {
+			if (parameter.type !== null && shouldIncludeType(parameter.type, currentClass)) {
+				addTypeToCollection(parameter.type, types, artifacts, enumerations)
+			}
+			
+			// Check parameter default values
+			if (parameter.defaultValue !== null) {
+				collectTypesFromValueSpec(it, parameter.defaultValue, types, artifacts, enumerations, currentClass)
+			}
+		}
+	}
+
+	private def void collectTypesFromInstances(CodegenInterface it, Class umlClass,
+		HashSet<Type> types, HashSet<Artifact> artifacts, HashSet<Enumeration> enumerations) {
+		
+		val instances = umlClass.model?.packagedElements?.filter(InstanceSpecification)?.filter [ i |
+			i.classifiers.size == 1 && i.classifiers.head == umlClass
+		]
+
+		if (instances !== null) {
+			for (instance : instances) {
+				for (slot : instance.slots) {
+					for (value : slot.values) {
+						collectTypesFromValueSpec(it, value, types, artifacts, enumerations, umlClass)
+					}
+				}
+			}
+		}
+	}
+
+	private def void collectTypesFromValueSpec(CodegenInterface it, org.eclipse.uml2.uml.ValueSpecification valueSpec,
+		HashSet<Type> types, HashSet<Artifact> artifacts, HashSet<Enumeration> enumerations, Class currentClass) {
+		
+		if (valueSpec instanceof org.eclipse.uml2.uml.InstanceValue) {
+			val instanceValue = valueSpec as org.eclipse.uml2.uml.InstanceValue
+			if (instanceValue.instance instanceof EnumerationLiteral) {
+				val enumLiteral = instanceValue.instance as EnumerationLiteral
+				if (enumLiteral.enumeration !== null) {
+					enumerations.add(enumLiteral.enumeration)
+				}
+			}
+		}
+	}
+
+	private def boolean shouldIncludeType(Type type, Class currentClass) {
+		return type !== null && 
+		       !(type instanceof PrimitiveType) && 
+		       type !== currentClass &&
+		       type.name !== null &&
+		       !type.name.empty
+	}
+
+	private def void addTypeToCollection(Type type, HashSet<Type> types, 
+		HashSet<Artifact> artifacts, HashSet<Enumeration> enumerations) {
+		
+		if (type instanceof Class) {
+			types.add(type)
+		} else if (type instanceof Enumeration) {
+			enumerations.add(type as Enumeration)
+		} else if (type instanceof Artifact) {
+			artifacts.add(type as Artifact)
+		}
+	}
+
+	private def String buildIncludeString(CodegenInterface it, Class umlClass,
+		HashSet<Type> types, HashSet<Artifact> artifacts, HashSet<Enumeration> enumerations) {
+		
+		val result = new StringBuilder()
+		
+		// Add standard library includes first (from artifacts)
+		val systemIncludes = new LinkedList<String>()
+		val userIncludes = new LinkedList<String>()
+		
+		for (artifact : artifacts.sort[a1, a2 | a1.name?.compareTo(a2.name ?: "") ?: 0]) {
+			val include = generate(artifact, "include")
+			if (include !== null && !include.empty) {
+				if (include.contains("<") && include.contains(">")) {
+					systemIncludes.add(include)
+				} else {
+					userIncludes.add(include)
+				}
+			}
+		}
+		
+		// Add system includes
+		for (include : systemIncludes) {
+			result.append(include).append('\n')
+		}
+		
+		// Add enumeration includes
+		for (enumType : enumerations.sort[e1, e2 | e1.name?.compareTo(e2.name ?: "") ?: 0]) {
+			val enumPath = generatePath(it, umlClass, enumType)
+			if (enumPath !== null && !enumPath.startsWith("ERROR")) {
+				result.append('#include "').append(enumPath).append('"\n')
+			}
+		}
+		
+		// Add class type includes
+		val sortedIncludePaths = types.map[type | generatePath(it, umlClass, type)]
+			.filter[p | p !== null && !p.startsWith("ERROR")]
+			.toSet
+			.sort
+		
+		for (pathString : sortedIncludePaths) {
+			result.append('#include "').append(pathString).append('"\n')
+		}
+		
+		// Add user includes
+		for (include : userIncludes) {
+			result.append(include).append('\n')
+		}
+
+		return result.toString.trim
+	}
+
+	def String generatePath(CodegenInterface it, NamedElement from, NamedElement to) {
+		try {
+			val fromPath = getPath(from, "declaration")
+			val toPath = getPath(to, "declaration")
+
+			if (fromPath === null || toPath === null) {
+				// Try to generate a simple include based on name
+				if (to?.name !== null) {
+					return to.name + ".h"
+				}
+				return "ERROR_PATH_NOT_FOUND_" + (to?.name ?: "unknown")
+			}
+
+			val relPath = fromPath.parent?.relativize(toPath) ?: toPath
+			return relPath.toString.replace('\\', '/')
+		} catch (Exception e) {
+			// Fallback to simple name-based include
+			if (to?.name !== null) {
+				return to.name + ".h"
+			}
+			return "ERROR_PATH_GENERATION_" + (to?.name ?: "unknown")
+		}
+	}
+
+	override Path getPath(Class umlClass, String context) {
+		if (umlClass?.name === null) {
+			return null
+		}
+
+		val path = new LinkedList<String>()
+		
+		switch context {
+			case "declaration": {
+				path.addFirst(umlClass.name + ".h")
+			}
+			case "implementation": {
+				path.addFirst(umlClass.name + ".c")
+			}
+			default:
+				return null
+		}
+		
+		var parent = umlClass.namespace
+		while (parent !== null && parent.name !== null) {
+			path.addFirst(parent.name)
+			parent = parent.namespace
+		}
+		
+		try {
+			return Paths.get(path.head, path.tail)
+		} catch (Exception e) {
+			// Fallback for path creation issues
+			return Paths.get(umlClass.name + (context == "declaration" ? ".h" : ".c"))
+		}
+	}
+
+	// Enhanced debug method to help identify missing types
+	def String debugMissingTypes(CodegenInterface it, Class umlClass) {
+		val debug = new StringBuilder()
+		debug.append("=== Missing Types Debug for: ").append(umlClass.name).append(" ===\n")
+		
+		// Check all referenced types
+		val allReferencedTypes = new HashSet<String>()
+		
+		for (attr : umlClass.ownedAttributes) {
+			if (attr.type?.name !== null) {
+				allReferencedTypes.add(attr.type.name + " (from attribute " + attr.name + ")")
+			}
+		}
+		
+		for (op : umlClass.ownedOperations) {
+			if (op.type?.name !== null) {
+				allReferencedTypes.add(op.type.name + " (from operation " + op.name + " return)")
+			}
+			for (param : op.ownedParameters) {
+				if (param.type?.name !== null) {
+					allReferencedTypes.add(param.type.name + " (from parameter " + param.name + ")")
+				}
+			}
+		}
+		
+		debug.append("All referenced types:\n")
+		for (typeName : allReferencedTypes.sort) {
+			debug.append("  - ").append(typeName).append("\n")
+		}
+		
+		return debug.toString
+	}
+}

@@ -1,0 +1,27 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.StructuredClassifier
+
+class StructuredClassifierTemplate implements Template<StructuredClassifier> {
+
+	override generateCode(CodegenInterface it, StructuredClassifier umlClassifier, String context) {
+		// TODO: Aufgabe 2
+		var att = "";
+		
+		val nameTemplate = new NameTemplate()
+		val generatedName = nameTemplate.generateCode(it, umlClassifier, "name")
+		
+		for (var i = 0; i < umlClassifier.ownedAttributes.length; i++) {
+			att += "\n	" + generate(umlClassifier.ownedAttributes.get(i), "attribute")
+		}
+		
+		'''
+			typedef struct «generatedName»_struct {«att»
+			} «generatedName»;
+		'''
+		
+	}
+
+}

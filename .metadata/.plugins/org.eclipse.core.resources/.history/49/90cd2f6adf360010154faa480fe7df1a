@@ -1,0 +1,74 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.AggregationKind
+import org.eclipse.uml2.uml.Property
+import javax.lang.model.type.PrimitiveType
+import org.eclipse.uml2.uml.Artifact
+
+class PropertyTemplate implements Template<Property> {
+
+    override generateCode(CodegenInterface it, Property umlProperty, String context) {
+        
+        // Initialize name and pointer if needed
+        var name = sanitizeIdentifier(umlProperty.name);
+        var pointer = ""
+        var upper = "";
+
+        if (umlProperty.upper > 1) {
+            upper = "[" + umlProperty.upper.toString + "]";
+        } else if (umlProperty.upper === -1) {
+            pointer = "*"
+        }
+
+        var type = generate(umlProperty.type, "type");
+        
+        // Ensure type is valid C identifier
+        type = sanitizeTypeName(type)
+
+        if (!(umlProperty.type instanceof PrimitiveType || umlProperty.type instanceof Artifact) &&
+            umlProperty.aggregation == AggregationKind.COMPOSITE_LITERAL) {
+            
+            val typeName = sanitizeTypeName(generate(umlProperty.type, "name"))
+            '''«typeName» «name»«upper»;'''
+        } else {
+            // Return the generated type and property name with pointer
+            '''«type»«pointer» «name»«upper»;'''
+        }
+    }
+    
+    /**
+     * Sanitize identifiers to be valid C identifiers
+     */
+    def sanitizeIdentifier(String identifier) {
+        if (identifier === null) return "unnamed"
+        
+        // Remove invalid characters and replace with underscores
+        val sanitized = identifier.replaceAll("[^a-zA-Z0-9_]", "_")
+                                 .replaceAll("_{2,}", "_")  // Replace multiple underscores with single
+                                 .replaceAll("^_+|_+$", "") // Remove leading/trailing underscores
+        
+        // Ensure it doesn't start with a number
+        if (sanitized.matches("^[0-9].*")) {
+            return "field_" + sanitized
+        }
+        
+        return if (sanitized.empty) "unnamed" else sanitized
+    }
+    
+    /**
+     * Sanitize type names to be valid C identifiers
+     */
+    def sanitizeTypeName(String typeName) {
+        if (typeName === null) return "void"
+        
+        // Handle common problematic patterns
+        val cleaned = typeName.replace(".h_", "_")  // Replace .h_ with _
+                             .replaceAll("[^a-zA-Z0-9_]", "_")
+                             .replaceAll("_{2,}", "_")
+                             .replaceAll("^_+|_+$", "")
+        
+        return if (cleaned.empty) "void" else cleaned
+    }
+}

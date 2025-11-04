@@ -1,0 +1,51 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.StructuredClassifier
+
+class StructuredClassifierTemplate implements Template<StructuredClassifier> {
+
+	override generateCode(CodegenInterface it, StructuredClassifier umlClassifier, String context) {
+		// Generiere den Namen des strukturierten Klassifizierers
+		val name = if (umlClassifier.package !== null)
+				generate(umlClassifier.package, "name") + "_" + umlClassifier.name
+			else
+				umlClassifier.name
+
+		// Initialisiere eine Variable für die Attributdeklarationen
+		var str = ""
+
+		// Durchlaufe die Attribute des strukturierten Klassifizierers
+		for (var i = 0; i < umlClassifier.ownedAttributes.length; i++) {
+			val attr = umlClassifier.ownedAttributes.get(i)
+			var typeName = attr.type.name
+
+			// Falls das Attribut einen Package-Namen hat, füge diesen hinzu
+			if (attr.type.package !== null) {
+				typeName = generate(attr.type.package, "name") + "_" + typeName
+			}
+
+			// Verarbeite den Typ basierend auf dem "upper"-Wert
+			if (attr.upper == -1) {
+				// Zeiger (Pointer) für unbestimmte Größen (z.B. Arrays mit unbestimmter Größe)
+				str += "\n    " + typeName + "* " + attr.name + ";"
+			} else if (attr.upper > 1) {
+				// Array mit fester Größe
+				str += "\n    " + typeName + " " + attr.name + "[" + attr.upper + "];"
+			} else {
+				// Einfaches Attribut ohne Array oder Pointer
+				str += "\n    " + typeName + " " + attr.name + ";"
+			}
+		}
+
+		// Gib den Code für die Struktur mit ihren Attributen zurück
+		if (str.isEmpty) {
+			return '''typedef struct «name»_struct {
+} «name»;'''
+		} else {
+			return '''typedef struct «name»_struct {«str»
+} «name»;'''
+		}
+	}
+}

@@ -1,0 +1,32 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Parameter
+
+class ParameterTemplate implements Template<Parameter> {
+
+	override generateCode(CodegenInterface it, Parameter umlParameter, String context) {
+		// Hole den Namen des Parameters
+		val name = umlParameter.name
+
+		// Hole den Typnamen oder nutze Fallback
+		val rawType = if (umlParameter.type !== null) generate(umlParameter.type, "type") else "void*"
+
+		// Prüfe, ob der Typ ein Enum ist
+		val isEnum = umlParameter.type?.eClass?.name == "Enumeration"
+		val typeName = if (isEnum) umlParameter.type.name else rawType
+
+		// Prüfe auf Arrays
+		val isArray = umlParameter.upper != 1 && umlParameter.upper != 0
+
+		val arraySuffix = if (isArray) "[]" else ""
+		val pointer = if (!isArray && (umlParameter.direction == org.eclipse.uml2.uml.ParameterDirectionKind.INOUT_LITERAL || umlParameter.direction == org.eclipse.uml2.uml.ParameterDirectionKind.OUT_LITERAL)) "*" else ""
+
+		// Rückgabe der passenden Signatur
+		switch (umlParameter.direction) {
+			case RETURN_LITERAL: typeName
+			default: '''«typeName» «pointer»«name»«arraySuffix»'''
+		}
+	}
+}

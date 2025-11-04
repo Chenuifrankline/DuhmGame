@@ -1,0 +1,79 @@
+package codegenerator.templates
+
+import codegenerator.Template
+import codegenerator.CodegenInterface
+import org.eclipse.uml2.uml.Artifact
+
+class ArtifactTemplate implements Template<Artifact> {
+    
+    override generateCode(CodegenInterface it, Artifact umlArtifact, String context) {
+        switch (context) {
+            case "include": {
+                val file = umlArtifact.fileName
+                
+                // If no filename or empty: return null
+                if (file === null || file.trim.empty)
+                    return null
+                    
+                // If filename is enclosed with < and > (e.g., <stdio.h>), create include with angle brackets
+                else if (file.startsWith("<") && file.endsWith(">"))
+                    return "#include " + file
+                    
+                // Otherwise create include with quotes
+                else {
+                    System.out.println("Including file: " + file)
+                    return "#include \"" + file + "\""
+                }
+            }
+            case "type": {
+                // Generate clean type name from artifact name
+                val typeName = generate(umlArtifact, "name")
+                return sanitizeTypeName(typeName)
+            }
+            case "name": {
+                // Generate clean identifier name
+                val name = umlArtifact.name
+                return sanitizeIdentifier(name)
+            }
+            default:
+                throw new UnsupportedOperationException("Unsupported context: " + context)
+        }
+    }
+    
+    /**
+     * Sanitize type names to be valid C identifiers
+     */
+    def sanitizeTypeName(String typeName) {
+        if (typeName === null) return "void"
+        
+        // Handle common problematic patterns from UML
+        val cleaned = typeName.replace(".h_", "_")  // Replace .h_ with _
+                             .replaceAll("[^a-zA-Z0-9_]", "_")  // Replace invalid chars with _
+                             .replaceAll("_{2,}", "_")          // Replace multiple _ with single
+                             .replaceAll("^_+|_+$", "")         // Remove leading/trailing _
+        
+        // Ensure it doesn't start with a number
+        if (cleaned.matches("^[0-9].*")) {
+            return "type_" + cleaned
+        }
+        
+        return if (cleaned.empty) "void" else cleaned
+    }
+    
+    /**
+     * Sanitize identifiers to be valid C identifiers
+     */
+    def sanitizeIdentifier(String identifier) {
+        if (identifier === null) return "unnamed"
+        
+        val sanitized = identifier.replaceAll("[^a-zA-Z0-9_]", "_")
+                                 .replaceAll("_{2,}", "_")
+                                 .replaceAll("^_+|_+$", "")
+        
+        if (sanitized.matches("^[0-9].*")) {
+            return "item_" + sanitized
+        }
+        
+        return if (sanitized.empty) "unnamed" else sanitized
+    }
+}    

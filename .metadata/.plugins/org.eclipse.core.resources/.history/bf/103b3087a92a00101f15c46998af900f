@@ -1,0 +1,48 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Operation
+import org.eclipse.uml2.uml.ParameterDirectionKind
+import org.eclipse.uml2.uml.OpaqueBehavior
+
+class OperationTemplate implements Template<Operation> {
+
+	override generateCode(CodegenInterface it, Operation umlOperation, String context) {
+		val name = umlOperation.name
+		val klasse = umlOperation.class_
+		val param = umlOperation.ownedParameters
+		val isStatic = umlOperation.isStatic
+
+		// get return type
+		val returnParam = param.findFirst[direction.literal == "return"]
+		val returnType = if (returnParam !== null) it.generate(returnParam, "return") else "void"
+
+		// get non-return parameters
+		val inputParams = if (param !== null) param.filter[direction.literal != "return"] else newArrayList
+
+		// build parameter string using CodegenInterface
+		val paramString = inputParams.map[p | it.generate(p, "parameter")].join(", ")
+
+		// generate prefix (class + package)
+		val prefix = if (klasse.package !== null)
+			it.generate(klasse.package, "name") + "_" + klasse.name
+		else
+			klasse.name
+
+		// handle parameter list for static vs instance
+		var paramList = ""
+		if (!isStatic) {
+			paramList = prefix + "* const me"
+			if (!paramString.empty) {
+				paramList = paramList + ", " + paramString
+			}
+		} else {
+			paramList = if (!paramString.empty) paramString else "void"
+		}
+
+		// final method signature
+		val finalName = '''«returnType» «prefix»_«name»(«paramList»);'''
+		return finalName
+	}
+}

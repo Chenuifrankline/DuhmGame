@@ -1,0 +1,33 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.AggregationKind
+import org.eclipse.uml2.uml.Property
+
+
+class PropertyTemplate implements Template<Property> {
+
+    override generateCode(CodegenInterface it, Property umlProperty, String context) {
+        val name = umlProperty.name ?: "unnamed"
+        val upperBound = umlProperty.upper
+
+        // Default pointer logic for arrays or multiplicities
+        val pointer = if (upperBound === -1 || upperBound > 1) "*" else ""
+
+        val arraySuffix = if (upperBound > 1) '''[«upperBound»]''' else ""
+
+        // Determine type name safely
+        val type = if (umlProperty.type !== null) generate(umlProperty.type, "type") else "void*"
+
+        // Composite objects (struct-style nesting)
+        if (umlProperty.aggregation == AggregationKind.COMPOSITE_LITERAL &&
+            umlProperty.type !== null) {
+            val compositeName = generate(umlProperty.type, "name")
+            return '''«compositeName» «name»«arraySuffix»;'''
+        }
+
+        // All other fields
+        return '''«type»«pointer» «name»«arraySuffix»;'''
+    }
+}

@@ -1,0 +1,86 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import java.nio.file.Path
+import java.nio.file.Paths
+import java.util.LinkedList
+import org.eclipse.uml2.uml.Enumeration
+
+class EnumTemplate implements Template<Enumeration> {
+
+	override generateCode(CodegenInterface it, Enumeration umlEnum, String context) {
+		val name = generate(umlEnum, "name")
+
+		switch (context) {
+
+			// Kontext für die Hauptdefinition des Enums (C-Style typedef)
+			case "typedefinition": {
+				return '''
+					typedef enum {
+						«FOR literal : umlEnum.ownedLiterals SEPARATOR ','»
+							«generate(literal, "enumliteral")»
+						«ENDFOR»
+					} «name»;
+				'''
+			}
+
+			// Kontext für Header-Datei mit Include-Guard und externem Array
+			case "declaration": {
+				return '''
+					#ifndef «name.toUpperCase»_H
+					#define «name.toUpperCase»_H
+					
+					«generate(umlEnum, "typedefinition")»
+					
+					extern «name» «name»_Literals[«umlEnum.ownedLiterals.size»];
+					
+					#endif
+				'''
+			}
+
+			// Kontext für .c-Datei, in der das Literal-Array initialisiert wird
+			case "implementation": {
+				return '''
+					#include "«umlEnum.name».h"
+					
+					«name» «name»_Literals[«umlEnum.ownedLiterals.size»] = {
+						«FOR literal : umlEnum.ownedLiterals SEPARATOR ','»
+							«generate(literal, "name")»
+						«ENDFOR»
+					};
+				'''
+			}
+
+			// Ganz wichtig: Liefert den Enum-Typnamen für Typreferenzen (z. B. in Parametern)
+			case "type": {
+				return name
+			}
+
+			// Fallback für unbekannte Kontexte (hilfreich beim Debuggen)
+			default: {
+				return "<unhandled enum context: " + context + ">"
+			}
+		}
+	}
+
+	// Gibt den Speicherort der .h / .c-Dateien zurück, je nach Kontext
+	override Path getPath(Enumeration umlEnum, String context) {
+		val path = new LinkedList<String>()
+
+		switch context {
+			case "declaration": path.addFirst(umlEnum.name + ".h")
+			case "implementation": path.addFirst(umlEnum.name + ".c")
+			default: return null
+		}
+
+		// Optional: Füge Package-Namen als Verzeichnisse hinzu
+		var parent = umlEnum.namespace
+		while (parent !== null) {
+			path.addFirst(parent.name)
+			parent = parent.namespace
+		}
+
+		return Paths.get(path.head, path.tail)
+	}
+}

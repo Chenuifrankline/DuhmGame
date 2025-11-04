@@ -1,0 +1,38 @@
+package codegenerator.templates
+
+import codegenerator.CodegenInterface
+import codegenerator.Template
+import org.eclipse.uml2.uml.Operation
+import org.eclipse.uml2.uml.ParameterDirectionKind
+import org.eclipse.uml2.uml.OpaqueBehavior
+
+class OperationTemplate implements Template<Operation> {
+
+override generateCode(CodegenInterface codegen, Operation umlOperation, String context) {
+	val name = umlOperation.name
+	val klasse = umlOperation.class_
+	val params = umlOperation.ownedParameters
+	val isStatic = umlOperation.isStatic
+
+	val returnParam = params.findFirst[direction == ParameterDirectionKind.RETURN_LITERAL]
+	val returnType = if (returnParam !== null) codegen.generate(returnParam, "return") else "void"
+	val inputParams = params.filter[direction != ParameterDirectionKind.RETURN_LITERAL]
+
+	val paramString = inputParams.join(", ") [ p | codegen.generate(p, "parameter") ]
+
+	val prefix = if (klasse.package !== null)
+		'''«codegen.generate(klasse.package, "name")»_«klasse.name»'''
+	else
+		klasse.name
+
+	val paramList = if (isStatic) {
+		if (!paramString.empty) paramString else "void"
+	} else {
+		if (!paramString.empty)
+			'''«prefix»* const me, «paramString»'''
+		else
+			'''«prefix»* const me'''
+	}
+
+	return '''«returnType» «prefix»_«name»(«paramList»);'''
+}
